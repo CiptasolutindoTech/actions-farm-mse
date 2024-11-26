@@ -16,12 +16,12 @@
     </head>
     <body class="antialiased font-sans bg-lightblue bg-cover bg-center" style="background-image: url('{{ asset('images/farmer.svg') }}');">
         <div class="text-black/50 dark:bg-black dark:text-white/50">
-            <div class="relative min-h-screen flex flex-col items-start justify-center pl-10 selection:bg-[#FF2D20] selection:text-white">
+            <div class="relative min-h-screen flex items-center justify-center pl-10 selection:bg-[#FF2D20] selection:text-white">
                 <div class="relative w-full max-w-2xl px-6 lg:max-w-7xl">
                     <header class="flex items-center justify-center py-10 px-4">
-                        <div class="rounded-lg bg-white/70 dark:bg-black/50 shadow-lg p-6 w-full max-w-3xl">
-                            <!-- Logo and Text aligned to the left -->
-                            <div class="flex items-center gap-4 flex-wrap">
+                        <div class="rounded-lg bg-white/85 dark:bg-black/60 shadow-lg p-6 w-full max-w-3xl text-center">
+                            <!-- Logo and Text aligned to the center -->
+                            <div class="flex flex-col items-center gap-4">
                                 <!-- Logo image (can replace with an actual image URL) -->
                                 <img src="{{ asset('images/logoaction.png') }}" alt="Farm Logo" class="h-12 w-auto" />
 

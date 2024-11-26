@@ -8,8 +8,6 @@
         <title>{{ config('app.name', 'Actions') }}</title>
 
         <!-- Fonts -->
-        {{-- <link rel="preconnect" href="https://fonts.bunny.net"> --}}
-        {{-- <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" /> --}}
         <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
 
         {{-- icon --}}
@@ -39,5 +37,13 @@
                 {{ $slot }}
             </main>
         </div>
+
+        <!-- Footer -->
+        <footer class="bg-white dark:bg-gray-800 py-1 mt-1">
+            <div class="max-w-7xl mx-auto text-center text-gray-600 dark:text-gray-300">
+                <p>&copy; {{ date('Y') }} {{ config('app.name') }}. All Rights Reserved.</p>
+                <p class="text-sm">Built with ❤️ by CiptaSolutindo</p>
+            </div>
+        </footer>
     </body>
 </html>
