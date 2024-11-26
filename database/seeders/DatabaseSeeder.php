@@ -2,31 +2,28 @@
 
 namespace Database\Seeders;
 
-use App\Models\User;
-// use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
-use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Database\Eloquent;
 
 class DatabaseSeeder extends Seeder
 {
-    /**
+    /** 
      * Seed the application's database.
+     *
+     * @return void
      */
-    public function run(): void
+    public function run()
     {
-        // User::factory(10)->create();
-
-        // User::factory()->create([
-        //     'name' => 'Test User',
-        //     'email' => 'test@example.com',
-        // ]);
-        User::create([
-            'id' => 1,
-            'username' => 'administrator',
-            'email' => 'admin@gmail.com',
-            'password' => Hash::make('ulala123'),
-            'created_at' => now(),
-            'updated_at' => now()
+        // DB::unprepared(file_get_contents('core-alamat-16112023.sql'));
+        $this->call([
+            ProductSeeder::class,
+            AcctInvoiceSeeder::class,
+            AcctJournalVoucherSeeder::class,
+            AssetSeeder::class,
+            AcctBankSeeder::class,
+            CoreOfficeSeeder::class,
+            CoreBranchSeeder::class,
         ]);
     }
 }

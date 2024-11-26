@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Farm Welcome</title>
+        <title>Action Farm</title>
 
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.bunny.net">
@@ -13,28 +13,37 @@
         <!-- Styles -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
-    <body class="antialiased font-sans bg-lightblue bg-cover bg-center" style="background-image: url('{{ asset('images/actionsfarm.png') }}');">
+    <body class="antialiased font-sans bg-lightblue bg-cover bg-center" style="background-image: url('{{ asset('images/farmer.svg') }}');">
         <div class="text-black/50 dark:bg-black dark:text-white/50">
             <div class="relative min-h-screen flex flex-col items-start justify-center pl-10 selection:bg-[#FF2D20] selection:text-white">
                 <div class="relative w-full max-w-2xl px-6 lg:max-w-7xl">
-                    <header class="flex items-center gap-4 py-10">
-                        <!-- Logo and Text aligned to the left -->
-                        <div class="flex items-center gap-4">
-                            <!-- Logo image (can replace with an actual image URL) -->
-                            <img src="{{ asset('images/logoaction.png') }}" alt="Farm Logo" class="h-12 w-auto" />
-                            <!-- Action Farm Text -->
-                            <h1 class="text-5xl font-bold text-black dark:text-white">Action <br> Farm</h1>
+                    <header class="flex items-center justify-center py-10 px-4">
+                        <div class="rounded-lg bg-white/70 dark:bg-black/50 shadow-lg p-6 w-full max-w-3xl">
+                            <!-- Logo and Text aligned to the left -->
+                            <div class="flex items-center gap-4 flex-wrap">
+                                <!-- Logo image (can replace with an actual image URL) -->
+                                <img src="{{ asset('images/logoaction.png') }}" alt="Farm Logo" class="h-12 w-auto" />
+                    
+                                <!-- Action Farm Text -->
+                                <div>
+                                    <h1 class="text-4xl sm:text-5xl font-bold text-black dark:text-white leading-tight">Action Farm</h1>
+                                    <h3 class="text-lg sm:text-2xl text-black dark:text-white mt-2 leading-snug">accounting online system</h3>
+                                </div>
+                            </div>
+                    
+                            <!-- Login Button -->
+                            <div class="mt-6 flex justify-center">
+                                <a
+                                    href="{{ route('login') }}"
+                                    class="flex items-center justify-center gap-4 px-6 py-3 bg-blue-500 text-white text-sm sm:text-lg rounded-md transition duration-300 hover:bg-blue-400 focus:outline-none focus-visible:ring-[#FF2D20]"
+                                >
+                                    <span class="font-semibold">Log in</span>
+                                </a>
+                            </div>
                         </div>
                     </header>
 
                     <main class="mt-6 flex flex-col items-start gap-6">
-                        <!-- Login Button -->
-                        <a
-                            href="{{ route('login') }}"
-                            class="flex items-center justify-center gap-4 p-4 bg-blue-500 text-white rounded-md transition duration-300 hover:bg-blue-400 focus:outline-none focus-visible:ring-[#FF2D20]"
-                        >
-                            <span class="text-lg font-semibold">Log in</span>
-                        </a>
 
                         <!-- Register Button -->
                         {{-- <a
