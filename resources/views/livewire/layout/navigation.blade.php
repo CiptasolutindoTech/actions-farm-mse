@@ -36,13 +36,15 @@ new class extends Component
             });
         })
         ->with(['children' => function ($query) use ($userGroupId) {
-            $query->whereHas('mappings', function ($subQuery) use ($userGroupId) {
-                $subQuery->whereHas('userGroup', function ($subSubQuery) use ($userGroupId) {
-                    $subSubQuery->where('user_group_id', $userGroupId);
+            $query->with(['children' => function ($subQuery) use ($userGroupId) {
+                $subQuery->with('children'); // Rekursif untuk semua level
+            }])->whereHas('mappings', function ($subSubQuery) use ($userGroupId) {
+                $subSubQuery->whereHas('userGroup', function ($deepQuery) use ($userGroupId) {
+                    $deepQuery->where('user_group_id', $userGroupId);
                 });
             });
         }])
-        ->where('parent_id', '=', '#') // Menampilkan hanya menu top-level
+        ->where('parent_id', '=', '#') // Top-level menus
         ->get();
     }
 
@@ -61,38 +63,9 @@ new class extends Component
                 </div>
 
                 <!-- Navigation Links -->
-                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                <div class="hidden space-x-5 sm:my-px sm:ms-4 sm:flex">
                     @foreach ($menus as $menu)
-                    @if ($menu->children->isEmpty())
-                        <!-- Check if the menu has a URL -->
-                        <a href="{{ $menu->id }}" class="nav-link {{ request()->is($menu->id) ? 'bg-blue-200 text-blue-700 rounded px-2 py-1' : '' }}">
-                            {{ $menu->text }}
-                        </a>
-                    @else
-                        <!-- Dropdown for Parent Menu with Children -->
-                        <div class="relative">
-                            <button x-on:click="openMenu === '{{ $menu->id_menu }}' ? openMenu = null : openMenu = '{{ $menu->id_menu }}'; activeParent = '{{ $menu->id_menu }}'"
-                                    class="text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300 flex items-center space-x-2">
-                                <span>{{ $menu->text }}</span>
-                                <svg class="h-4 w-4 transition-transform duration-200"
-                                     :class="openMenu === '{{ $menu->id_menu }}' ? 'transform rotate-180' : ''"
-                                     xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-                                </svg>
-                            </button>
-
-                            <div x-show="openMenu === '{{ $menu->id_menu }}'" x-transition
-                                 class="absolute left-0 mt-2 w-48 bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-700 shadow-lg rounded-lg">
-                                @foreach ($menu->children as $child)
-                                    <!-- Check if child has URL and highlight the active one -->
-                                    <a href="{{ $child->id }}"
-                                       class="dropdown-link {{ request()->is($child->parent_id) ? 'bg-blue-200 text-blue-700 rounded px-2 py-1' : '' }} block py-2 px-4 hover:bg-blue-100 dark:hover:bg-gray-700">
-                                        {{ $child->text }}
-                                    </a>
-                                @endforeach
-                            </div>
-                        </div>
-                    @endif
+                        @include('partials.navigation-item', ['menu' => $menu])
                     @endforeach
                 </div>
             </div>
@@ -118,18 +91,41 @@ new class extends Component
                     </x-slot>
 
                     <x-slot name="content">
+                        <!-- User Profile Section -->
+                        <div class="flex items-center px-4 py-2">
+                            <!-- User Photo -->
+                            <img src="{{ auth()->user()->avatar ?? asset('default-profile.png') }}"
+                                 alt="{{ auth()->user()->name }}"
+                                 class="w-10 h-10 rounded-full object-cover mr-3">
+
+                            <!-- User Info -->
+                            <div>
+                                <div class="text-sm font-medium text-gray-800 dark:text-gray-200">
+                                    {{ auth()->user()->name }}
+                                </div>
+                                <div class="text-xs text-gray-500 dark:text-gray-400">
+                                    {{ auth()->user()->email }}
+                                </div>
+                            </div>
+                        </div>
+
+                        <hr class="border-gray-200 dark:border-gray-700 my-2">
+
                         <!-- Profile Link -->
-                        <a href="{{ route('profile') }}" class="block w-full text-start py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-700">
+                        <a href="{{ route('profile') }}"
+                           class="block w-full text-start py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-700">
                             {{ __('Profile') }}
                         </a>
 
                         <!-- Logout Button -->
-                        <button wire:click="logout" class="w-full text-start py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-700">
+                        <button wire:click="logout"
+                                class="w-full text-start py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-700">
                             <x-dropdown-link>
                                 {{ __('Log Out') }}
                             </x-dropdown-link>
                         </button>
                     </x-slot>
+
                 </x-dropdown>
 
 

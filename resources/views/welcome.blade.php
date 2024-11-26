@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Action Farm</title>
+        <title>Actions</title>
 
         <!-- Fonts -->
         {{-- <link rel="preconnect" href="https://fonts.bunny.net"> --}}
@@ -27,7 +27,7 @@
 
                                 <!-- Action Farm Text -->
                                 <div>
-                                    <h1 class="text-4xl sm:text-5xl font-bold text-black dark:text-white leading-tight">Action Farm</h1>
+                                    <h1 class="text-4xl sm:text-5xl font-bold text-black dark:text-white leading-tight">Actions Farm</h1>
                                     <h4 class="text-lg sm:text-2xl text-black dark:text-white mt-2 leading-snug">Accounting Online System Farming</h4>
                                 </div>
                             </div>

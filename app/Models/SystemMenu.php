@@ -41,8 +41,10 @@ class SystemMenu extends Model
     // Get all child menus
     public function children()
     {
-        return $this->hasMany(SystemMenu::class, 'parent_id'); // assuming `parent_id` column exists
+        return $this->hasMany(SystemMenu::class, 'parent_id', 'id_menu')
+            ->with('children'); // Rekursif untuk mendukung multi-level
     }
+
 
     // Define a relationship to menu mappings (which ties menus to user groups)
     public function mappings()

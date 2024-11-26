@@ -37,10 +37,22 @@ return new class extends Migration
             });
              // Insert admin user
             DB::table('system_user')->insert(array(
-                    'branch_code' => '000',
-                    'branch_name' => "Kantor Pusat",
+                    'branch_code' => '003',
+                    'branch_name' => "CV 1",
                     'branch_address' => "Jl. Raya Solo-Tawangmangu No.Km 8,2, Tegal, Triyagan, Kec. Mojolaban, Kabupaten Sukoharjo, Jawa Tengah 57554",
-                    'branch_city' => 'Sukoharjo',
+                    'branch_city' => 'Karanganyar',
+            ));
+            DB::table('system_user')->insert(array(
+                'branch_code' => '002',
+                'branch_name' => "CV 2",
+                'branch_address' => "Jl. Raya Solo-Tawangmangu No.Km 8,2, Tegal, Triyagan, Kec. Mojolaban, Kabupaten Sukoharjo, Jawa Tengah 57554",
+                'branch_city' => 'Karanganyar',
+            ));
+            DB::table('system_user')->insert(array(
+                'branch_code' => '003',
+                'branch_name' => "CV 3",
+                'branch_address' => "Jl. Raya Solo-Tawangmangu No.Km 8,2, Tegal, Triyagan, Kec. Mojolaban, Kabupaten Sukoharjo, Jawa Tengah 57554",
+                'branch_city' => 'Karanganyar',
             ));
             }
     }
