@@ -30,6 +30,7 @@ return new class extends Migration
             $table->string('phone')->nullable();
             $table->string('email')->nullable();
             $table->dateTime('email_verified_at')->nullable();
+            $table->string('remember_token', 100)->nullable();
             $table->dateTime('verified_at')->nullable();
             $table->string('log_stat')->nullable();
             $table->boolean('branch_status')->default(0);

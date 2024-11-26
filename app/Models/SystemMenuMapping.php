@@ -2,6 +2,8 @@
 
 namespace App\Models;
 
+use App\Models\SystemMenu;
+use App\Models\SystemUserGroup;
 use Illuminate\Database\Eloquent\Model;
 
 class SystemMenuMapping extends Model
@@ -13,9 +15,9 @@ class SystemMenuMapping extends Model
      * @var string[]
      */
 
-    protected $table        = 'system_menu_mapping'; 
+    protected $table        = 'system_menu_mapping';
     protected $primaryKey   = 'menu_mapping_id';
-    
+
     protected $guarded = [
     ];
 
@@ -30,4 +32,16 @@ class SystemMenuMapping extends Model
     protected $hidden = [
     ];
 
+
+    // Relation to the SystemMenu model
+    public function menu()
+    {
+        return $this->belongsTo(SystemMenu::class, 'id_menu', 'id_menu');
+    }
+
+    // Relation to the SystemUserGroup model
+    public function userGroup()
+    {
+        return $this->belongsTo(SystemUserGroup::class, 'user_group_id');
+    }
 }

@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\SystemMenuMapping;
 use Illuminate\Database\Eloquent\Model;
 
 class SystemMenu extends Model
@@ -13,9 +14,9 @@ class SystemMenu extends Model
      * @var string[]
      */
 
-    protected $table        = 'system_menu'; 
+    protected $table        = 'system_menu';
     protected $primaryKey   = 'id_menu';
-    
+
     protected $guarded = [
     ];
 
@@ -30,5 +31,23 @@ class SystemMenu extends Model
      */
     protected $hidden = [
     ];
+
+    // Define the parent-child relationship for hierarchical structure
+    public function parent()
+    {
+        return $this->belongsTo(SystemMenu::class, 'parent_id'); // assuming `parent_id` column exists
+    }
+
+    // Get all child menus
+    public function children()
+    {
+        return $this->hasMany(SystemMenu::class, 'parent_id'); // assuming `parent_id` column exists
+    }
+
+    // Define a relationship to menu mappings (which ties menus to user groups)
+    public function mappings()
+    {
+        return $this->hasMany(SystemMenuMapping::class, 'id_menu', 'id_menu');
+    }
 
 }

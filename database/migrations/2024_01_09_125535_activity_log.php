@@ -12,23 +12,23 @@ return new class extends Migration
     public function up(): void
     {
         //
-        Schema::create("activity_log", function (Blueprint $table) {
-            $table->id("id");
-            $table->string('log_name')->nullable();
-            $table->text('properties')->nullable();
-            $table->integer('causer_id')->nullable();
-            $table->string('causer_type')->nullable();
-            $table->string('batch_uuid')->nullable();
-            $table->string('event')->nullable();
-            $table->integer('subject_id')->nullable();
-            $table->string('subject_type')->nullable();
-            $table->string('description')->nullable();
-            $table->unsignedBigInteger('created_id')->nullable();
-            $table->unsignedBigInteger('updated_id')->nullable();
-            $table->unsignedBigInteger('deleted_id')->nullable();
-            $table->softDeletesTz();
-            $table->timestamps();
-        });
+        // Schema::create("activity_log", function (Blueprint $table) {
+        //     $table->id("id");
+        //     $table->string('log_name')->nullable();
+        //     $table->text('properties')->nullable();
+        //     $table->integer('causer_id')->nullable();
+        //     $table->string('causer_type')->nullable();
+        //     $table->string('batch_uuid')->nullable();
+        //     $table->string('event')->nullable();
+        //     $table->integer('subject_id')->nullable();
+        //     $table->string('subject_type')->nullable();
+        //     $table->string('description')->nullable();
+        //     $table->unsignedBigInteger('created_id')->nullable();
+        //     $table->unsignedBigInteger('updated_id')->nullable();
+        //     $table->unsignedBigInteger('deleted_id')->nullable();
+        //     $table->softDeletesTz();
+        //     $table->timestamps();
+        // });
     }
 
     /**
@@ -36,6 +36,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('activity_log');
+        // Schema::dropIfExists('activity_log');
     }
 };

@@ -7,8 +7,9 @@
         <title>Action Farm</title>
 
         <!-- Fonts -->
-        <link rel="preconnect" href="https://fonts.bunny.net">
-        <link href="https://fonts.bunny.net/css?family=figtree:400,600&display=swap" rel="stylesheet" />
+        {{-- <link rel="preconnect" href="https://fonts.bunny.net"> --}}
+        {{-- <link href="https://fonts.bunny.net/css?family=figtree:400,600&display=swap" rel="stylesheet" /> --}}
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
 
         <!-- Styles -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
@@ -23,14 +24,14 @@
                             <div class="flex items-center gap-4 flex-wrap">
                                 <!-- Logo image (can replace with an actual image URL) -->
                                 <img src="{{ asset('images/logoaction.png') }}" alt="Farm Logo" class="h-12 w-auto" />
-                    
+
                                 <!-- Action Farm Text -->
                                 <div>
                                     <h1 class="text-4xl sm:text-5xl font-bold text-black dark:text-white leading-tight">Action Farm</h1>
-                                    <h3 class="text-lg sm:text-2xl text-black dark:text-white mt-2 leading-snug">accounting online system</h3>
+                                    <h4 class="text-lg sm:text-2xl text-black dark:text-white mt-2 leading-snug">Accounting Online System Farming</h4>
                                 </div>
                             </div>
-                    
+
                             <!-- Login Button -->
                             <div class="mt-6 flex justify-center">
                                 <a
