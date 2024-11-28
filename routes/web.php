@@ -4,15 +4,19 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MenuController;
 use App\Http\Controllers\UnitController;
+use App\Http\Controllers\Auth\LoginController;
+
+Route::get('login', [LoginController::class, 'showLoginForm'])->name('login');
+Route::post('login', [LoginController::class, 'login']);
 
 // Route::view('/', 'welcome');
 Route::get('/', function () {
     return view('welcome');
 })->name('home');
 
-Route::get('/login', function () {
-    return view('pages.auth.login');
-})->name('login');
+// Route::get('/login', function () {
+//     return view('pages.auth.login');
+// })->name('login');
 
 Route::post('/logout', function () {
     Auth::logout();
