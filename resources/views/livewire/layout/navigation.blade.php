@@ -9,12 +9,12 @@ new class extends Component
     /**
      * Log the current user out of the application.
      */
-    public function logout(Logout $logout): void
-    {
-        $logout();
-        $this->redirectIntended(default: route('home', absolute: false), navigate: true);
-        // $this->redirect(route('login'), navigate: true);
-    }
+    // public function logout(Logout $logout): void
+    // {
+    //     $logout();
+    //     $this->redirectIntended(default: route('home', absolute: false), navigate: true);
+    //     // $this->redirect(route('login'), navigate: true);
+    // }
 
     public $menus = [];
 
@@ -117,12 +117,14 @@ new class extends Component
                         </a>
 
                         <!-- Logout Button -->
-                        <button wire:click="logout"
-                                class="w-full text-start py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-700">
-                            <x-dropdown-link>
-                                {{ __('Log Out >') }}
-                            </x-dropdown-link>
-                        </button>
+                        <form method="POST" action="{{ route('logout') }}">
+                            @csrf
+                            <button type="submit" class="w-full text-start py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-700">
+                                <x-dropdown-link>
+                                    {{ __('Log Out >') }}
+                                </x-dropdown-link>
+                            </button>
+                        </form>
                     </x-slot>
                 </x-dropdown>
 

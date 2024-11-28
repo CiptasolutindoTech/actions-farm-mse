@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MenuController;
 use App\Http\Controllers\UnitController;
@@ -12,6 +13,11 @@ Route::get('/', function () {
 Route::get('/login', function () {
     return view('pages.auth.login');
 })->name('login');
+
+Route::post('/logout', function () {
+    Auth::logout();
+    return redirect()->route('login'); // Redirect ke halaman login setelah logout
+})->name('logout');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
