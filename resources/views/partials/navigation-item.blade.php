@@ -1,8 +1,8 @@
 <div class="relative group" x-data="{ openMenu: false }">
     <!-- Menu Induk -->
-    <a href="{{ $menu->id }}"
+    <a href="{{ url($menu->id) }}"
        class="nav-link {{ request()->is($menu->id) ? 'bg-blue-200 text-blue-700 rounded px-2 py-1' : '' }} dark:text-white"
-       @click.prevent="openMenu = !openMenu">
+       @click="openMenu = !openMenu"> <!-- Removed prevent here -->
         {{ $menu->text }}
     </a>
 
@@ -13,9 +13,9 @@
             @foreach ($menu->children as $child)
                 <!-- Menu Anak -->
                 <div x-data="{ openChild: false }">
-                    <a href="{{ $child->id }}"
+                    <a href="{{ url($child->id) }}"
                        class="dropdown-link {{ request()->is($child->id) ? 'bg-blue-200 text-blue-700 rounded px-2 py-1' : '' }} block py-2 px-4 hover:bg-blue-100 dark:hover:bg-gray-700 dark:text-white"
-                       @click.prevent="openChild = !openChild">
+                       @click="openChild = !openChild"> <!-- Removed prevent here -->
                         {{ $child->text }}
 
                         <!-- Toggle symbol if there are children -->
@@ -31,9 +31,9 @@
                             @foreach ($child->children as $subChild)
                                 <!-- Sub-Child -->
                                 <div x-data="{ openSubChild: false }">
-                                    <a href="{{ $subChild->id }}"
+                                    <a href="{{ url($subChild->id) }}"
                                        class="text-gray-600 dark:text-white block px-4 py-2 hover:bg-blue-100 dark:hover:bg-gray-700"
-                                       @click.prevent="openSubChild = !openSubChild">
+                                       @click="openSubChild = !openSubChild"> <!-- Removed prevent here -->
                                         {{ $subChild->text }}
 
                                         <!-- Toggle symbol if there are children -->
@@ -48,7 +48,7 @@
                                              class="absolute left-48 top-0 mt-2 w-48 bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-700 shadow-lg rounded-lg">
                                             @foreach ($subChild->children as $subSubChild)
                                                 <!-- Sub-Sub-Child -->
-                                                <a href="{{ $subSubChild->id }}"
+                                                <a href="{{ url($subSubChild->id) }}"
                                                    class="text-gray-600 dark:text-white block px-4 py-2 hover:bg-blue-100 dark:hover:bg-gray-700">
                                                     {{ $subSubChild->text }}
                                                 </a>

@@ -41,7 +41,7 @@ return new class extends Migration
                [ 'id_menu' => 75, 'id' => 'profit-loss-report', 'type' => 'file','text' => 'Laporan Laba Rugi','parent_id' => "7",'menu_level' => "2",],
                [ 'id_menu' => 8,  'id' => '#',                  'type' => 'folder','text' => 'Preferensi','parent_id' => "#",'menu_level' => "1",],
                [ 'id_menu' => 81, 'id' => 'preference-company', 'type' => 'file','text' => 'Perusahaan','parent_id' => "8",'menu_level' => "2",],
-               [ 'id_menu' => 82, 'id' => 'product-type',       'type' => 'file','text' => 'Tipe Produk','parent_id' => "8",'menu_level' => "2",],
+               [ 'id_menu' => 82, 'id' => 'unit',               'type' => 'file','text' => 'Satuan','parent_id' => "8",'menu_level' => "2",],
                [ 'id_menu' => 83, 'id' => 'acct-account-setting','type' => 'file','text' => 'Pengaturan Akun','parent_id' => "8",'menu_level' => "2",],
                [ 'id_menu' => 84, 'id' => 'user','type' => 'file','text' => 'Pengaturan User','parent_id' => "8",'menu_level' => "2",],
                [ 'id_menu' => 85, 'id' => 'user-group','type' => 'file','text' => 'Pengaturan User Group','parent_id' => "8",'menu_level' => "2",],
