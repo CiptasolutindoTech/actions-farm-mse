@@ -16,7 +16,7 @@ class UnitController extends Controller
     public function index()
     {
         $units = Unit::paginate(10);
-        return view('content.unit.index', compact('units'));
+        return view('content.Unit.index', compact('units'));
     }
 
     /**
@@ -26,7 +26,7 @@ class UnitController extends Controller
      */
     public function create()
     {
-        return view('content.unit.create');
+        return view('content.Unit.create');
     }
 
     /**
@@ -74,7 +74,7 @@ class UnitController extends Controller
      */
     public function edit(Unit $unit)
     {
-        return view('content.unit.edit', compact('unit'));
+        return view('content.Unit.edit', compact('unit'));
     }
 
     /**
