@@ -12,7 +12,8 @@ new class extends Component
     public function logout(Logout $logout): void
     {
         $logout();
-        $this->redirect(route('login'), navigate: true);
+        $this->redirectIntended(default: route('home', absolute: false), navigate: true);
+        // $this->redirect(route('login'), navigate: true);
     }
 
     public $menus = [];
