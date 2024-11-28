@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Unit;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class UnitController extends Controller
 {
@@ -14,7 +15,6 @@ class UnitController extends Controller
      */
     public function index()
     {
-        // Fetch units with pagination (10 units per page)
         $units = Unit::paginate(10);
         return view('content.unit.index', compact('units'));
     }
@@ -37,14 +37,33 @@ class UnitController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
-            'code' => 'required|unique:units',
-            'name' => 'required',
-        ]);
+        // Start a database transaction
+        DB::beginTransaction();
 
-        Unit::create($request->all());
+        try {
+            // Validate the request data
+            $request->validate([
+                'code' => 'required|unique:units',
+                'name' => 'required',
+            ]);
 
-        return redirect()->route('unit.index')->with('success', 'Unit created successfully.');
+            // Create the new unit
+            Unit::create($request->all());
+
+            // Commit the transaction
+            DB::commit();
+
+            // Flash success message to session
+            session()->flash('success', 'Unit created successfully.');
+        } catch (\Exception $e) {
+            // Rollback the transaction if something goes wrong
+            DB::rollBack();
+
+            // Flash error message to session
+            session()->flash('error', 'Failed to create unit. Please try again.');
+        }
+
+        return redirect()->route('unit.index');
     }
 
     /**
@@ -67,14 +86,33 @@ class UnitController extends Controller
      */
     public function update(Request $request, Unit $unit)
     {
-        $request->validate([
-            'code' => 'required|unique:units,code,' . $unit->id,
-            'name' => 'required',
-        ]);
+        // Start a database transaction
+        DB::beginTransaction();
 
-        $unit->update($request->all());
+        try {
+            // Validate the request data
+            $request->validate([
+                'code' => 'required|unique:units,code,' . $unit->id,
+                'name' => 'required',
+            ]);
 
-        return redirect()->route('unit.index')->with('success', 'Unit updated successfully.');
+            // Update the unit
+            $unit->update($request->all());
+
+            // Commit the transaction
+            DB::commit();
+
+            // Flash success message to session
+            session()->flash('success', 'Unit updated successfully.');
+        } catch (\Exception $e) {
+            // Rollback the transaction if something goes wrong
+            DB::rollBack();
+
+            // Flash error message to session
+            session()->flash('error', 'Failed to update unit. Please try again.');
+        }
+
+        return redirect()->route('unit.index');
     }
 
     /**
@@ -85,8 +123,26 @@ class UnitController extends Controller
      */
     public function destroy(Unit $unit)
     {
-        $unit->delete();
+        // Start a database transaction
+        DB::beginTransaction();
 
-        return redirect()->route('unit.index')->with('success', 'Unit deleted successfully.');
+        try {
+            // Delete the unit
+            $unit->delete();
+
+            // Commit the transaction
+            DB::commit();
+
+            // Flash success message to session
+            session()->flash('success', 'Unit deleted successfully.');
+        } catch (\Exception $e) {
+            // Rollback the transaction if something goes wrong
+            DB::rollBack();
+
+            // Flash error message to session
+            session()->flash('error', 'Failed to delete unit. Please try again.');
+        }
+
+        return redirect()->route('unit.index');
     }
 }
