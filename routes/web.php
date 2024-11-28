@@ -16,7 +16,7 @@ Route::get('/login', function () {
 
 Route::post('/logout', function () {
     Auth::logout();
-    return redirect()->route('login'); // Redirect ke halaman login setelah logout
+    return redirect()->route('home'); // Redirect ke halaman login setelah logout
 })->name('logout');
 
 Route::get('/dashboard', function () {
