@@ -54,6 +54,48 @@ return new class extends Migration
                 'updated_at'=> date('Y-m-d H:i:s'),
                 'password_date'=> date('Y-m-d H:i:s')
         ));
+
+         // Insert other user
+         DB::table('system_user')->insert(array(
+            'username' => 'anton',
+            'user_level' => 1,
+            'user_group_id' => 1,
+            'branch_id' => 1,
+            'company_id' => 1,
+            'email' => 'anton@email.com',
+            'password'=>Hash::make('4502'),
+            'created_at'=> date('Y-m-d H:i:s'),
+            'updated_at'=> date('Y-m-d H:i:s'),
+            'password_date'=> date('Y-m-d H:i:s')
+        ));
+
+        // Insert other user
+        DB::table('system_user')->insert(array(
+            'username' => 'sayyid',
+            'user_level' => 1,
+            'user_group_id' => 1,
+            'branch_id' => 1,
+            'company_id' => 1,
+            'email' => 'sayyid@email.com',
+            'password'=>Hash::make('2234'),
+            'created_at'=> date('Y-m-d H:i:s'),
+            'updated_at'=> date('Y-m-d H:i:s'),
+            'password_date'=> date('Y-m-d H:i:s')
+        ));
+
+        // Insert other user
+        DB::table('system_user')->insert(array(
+            'username' => 'lyani',
+            'user_level' => 1,
+            'user_group_id' => 1,
+            'branch_id' => 1,
+            'company_id' => 1,
+            'email' => 'lyani@email.com',
+            'password'=>Hash::make('123456'),
+            'created_at'=> date('Y-m-d H:i:s'),
+            'updated_at'=> date('Y-m-d H:i:s'),
+            'password_date'=> date('Y-m-d H:i:s')
+        ));
         }
 
         Schema::create('sessions', function (Blueprint $table) {
