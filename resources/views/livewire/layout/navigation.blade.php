@@ -12,7 +12,7 @@ new class extends Component
     public function logout(Logout $logout): void
     {
         $logout();
-        $this->redirect(url('/'), navigate: true);
+        $this->redirect(route('login'), navigate: true);
     }
 
     public $menus = [];
