@@ -2,21 +2,21 @@
 
 namespace App\Http\Controllers;
 
-use App\DataTables\UnitDataTable;
 use App\Models\Unit;
 use Illuminate\Http\Request;
 
 class UnitController extends Controller
 {
     /**
-     * Menampilkan data unit dalam DataTable.
+     * Menampilkan data unit dengan pagination.
      *
-     * @param \App\DataTables\UnitDataTable $dataTable
      * @return \Illuminate\Http\Response
      */
-    public function index(UnitDataTable $dataTable)
+    public function index()
     {
-        return $dataTable->render('content.unit.index');
+        // Fetch units with pagination (10 units per page)
+        $units = Unit::paginate(10);
+        return view('content.unit.index', compact('units'));
     }
 
     /**

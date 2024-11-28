@@ -17,13 +17,12 @@
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
         <script src="{{ asset('js/theme.js') }}" defer></script>
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+
 
         {{-- datatables --}}
-        <link rel="stylesheet" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css">
-        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-        <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
-
-
+        <!-- DataTables CSS -->
+        <link rel="stylesheet" href="https://cdn.datatables.net/1.13.3/css/jquery.dataTables.min.css">
     </head>
     <body class="font-sans antialiased">
         <div class="min-h-screen bg-gray-100 dark:bg-gray-900">
@@ -51,5 +50,10 @@
                 <p class="text-sm">Built with ❤️ by CiptaSolutindo</p>
             </div>
         </footer>
+           <!-- jQuery -->
+           <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+           <!-- DataTables JS -->
+           <script src="https://cdn.datatables.net/1.13.3/js/jquery.dataTables.min.js"></script>
     </body>
 </html>
