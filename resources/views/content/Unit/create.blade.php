@@ -1,9 +1,24 @@
 <x-app-layout>
-    <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
-            {{ __('Create Unit') }}
-        </h2>
-    </x-slot>
+    <div class="container mx-auto mt-6">
+
+    <!-- Breadcrumbs -->
+    <nav class="mb-4 mx-5" aria-label="Breadcrumb">
+        <ol class="flex items-center space-x-2 text-sm text-gray-600 dark:text-gray-400">
+            <li>
+                <a href="/dashboard" class="text-blue-600 font-semibold hover:text-blue-700">
+                    <i class="fas fa-home mr-1"></i> Home
+                </a>
+            </li>
+            <li>
+                <span class="mx-0">-</span>
+            </li>
+            <li>
+                <a href="{{ route('unit.index') }}" class="text-blue-600 font-semibold hover:text-blue-700">
+                    Tambah Satuan
+                </a>
+            </li>
+        </ol>
+    </nav>
 
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
@@ -43,5 +58,6 @@
                 </div>
             </div>
         </div>
+    </div>
     </div>
 </x-app-layout>

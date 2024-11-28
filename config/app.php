@@ -15,8 +15,6 @@ return [
 
     'name' => env('APP_NAME', 'Laravel'),
 
-    'Activity' => Spatie\Activitylog\Facades\Activity::class,
-
 
     /*
     |--------------------------------------------------------------------------

@@ -52,7 +52,7 @@ new class extends Component
 
 ?>
 
-<nav x-data="{ open: false, openMenu: null }" class="bg-blue-500 dark:bg-gray-800 border-b border-gray-100 dark:border-gray-700">
+<nav x-data="{ open: false, openMenu: null }" class="bg-blue-300 dark:bg-gray-800 border-b border-gray-100 dark:border-gray-700">
     <!-- Primary Navigation Menu -->
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between items-center h-16">
@@ -85,7 +85,7 @@ new class extends Component
                     <x-slot name="trigger">
                         <button class="inline-flex items-center p-2 rounded-full text-gray-500 dark:text-gray-400 bg-white dark:bg-gray-800 hover:text-gray-700 dark:hover:text-gray-300 focus:outline-none transition ease-in-out duration-150">
                             <!-- User Avatar -->
-                            <img src="{{ auth()->user()->avatar ?? asset('default-profile.png') }}"
+                            <img src="{{ auth()->user()->avatar ?? asset('images/user.png') }}"
                                  alt="{{ auth()->user()->name }}"
                                  class="w-10 h-10 rounded-full object-cover">
                         </button>
@@ -94,7 +94,7 @@ new class extends Component
                     <x-slot name="content">
                         <!-- User Profile Section -->
                         <div class="flex items-center px-4 py-2">
-                            <img src="{{ auth()->user()->avatar ?? asset('default-profile.png') }}"
+                            <img src="{{ auth()->user()->avatar ?? asset('images/user.png') }}"
                                  alt="{{ auth()->user()->name }}"
                                  class="w-10 h-10 rounded-full object-cover mr-3">
                             <div>
