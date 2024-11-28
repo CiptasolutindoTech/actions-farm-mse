@@ -7,10 +7,10 @@ use App\Http\Controllers\UnitController;
 // Route::view('/', 'welcome');
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('home');
 
 Route::get('/dashboard', function () {
-    return view('welcome');
+    return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 // Route::view('dashboard', 'dashboard')
