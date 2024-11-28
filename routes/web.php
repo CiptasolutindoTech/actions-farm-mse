@@ -6,6 +6,8 @@ use App\Http\Controllers\MenuController;
 use App\Http\Controllers\UnitController;
 use App\Http\Controllers\Auth\LoginController;
 
+
+
 Route::get('login', [LoginController::class, 'showLoginForm'])->name('login');
 Route::post('login', [LoginController::class, 'login']);
 
@@ -13,10 +15,6 @@ Route::post('login', [LoginController::class, 'login']);
 Route::get('/', function () {
     return view('welcome');
 })->name('home');
-
-// Route::get('/login', function () {
-//     return view('pages.auth.login');
-// })->name('login');
 
 Route::post('/logout', function () {
     Auth::logout();
@@ -26,10 +24,6 @@ Route::post('/logout', function () {
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
-
-// Route::view('dashboard', 'dashboard')
-//     ->middleware(['auth', 'verified'])
-//     ->name('dashboard');
 
 Route::view('profile', 'profile')
     ->middleware(['auth'])
