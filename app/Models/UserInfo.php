@@ -26,7 +26,7 @@ class UserInfo extends Model
 
         // check if the avatar is an external url, eg. image from google
         if (filter_var($this->avatar, FILTER_VALIDATE_URL)) {
-            return $this->avatar;   
+            return $this->avatar;
         }
 
         // no avatar, return blank avatar
