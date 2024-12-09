@@ -13,7 +13,7 @@ return new class extends Migration
     {
         if (!Schema::hasTable('medicines')) {
             Schema::create('medicines', function (Blueprint $table) {
-                $table->id('Item_ID'); // Primary Key
+                $table->id('item_id'); // Primary Key
 
                 // Kolom lainnya
                 $table->string('Medicine_Type', 255)->nullable(false); // Tipe obat
@@ -21,7 +21,7 @@ return new class extends Migration
                 $table->date('Expiration_Date')->nullable(false); // Tanggal kedaluwarsa
 
                 // Foreign Key (gunakan ID yang sama sebagai primary key dan foreign key)
-                $table->foreign('Item_ID')->references('id')->on('items')->onUpdate('cascade')->onDelete('cascade');
+                $table->foreign('item_id')->references('item_id')->on('items')->onUpdate('cascade')->onDelete('cascade');
 
                 // Metadata tambahan
                 $table->smallInteger('data_state')->default(0)->nullable();
