@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Feed;
+use App\Models\Item;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -26,8 +27,8 @@ class FeedController extends Controller
      */
     public function create()
     {
-        $items = Item::all(); // Ambil semua data item
-        return view('feed.create', compact('items'));
+        $feeds = Feed::all(); // Ambil semua data item
+        return view('content.Feed.create', compact('feeds'));
     }
 
     /**
