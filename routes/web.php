@@ -1,10 +1,11 @@
 <?php
 
-use App\Http\Controllers\CategoryController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ItemController;
 use App\Http\Controllers\MenuController;
 use App\Http\Controllers\UnitController;
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\Auth\LoginController;
 
 
@@ -49,6 +50,14 @@ Route::prefix('category')->name('category.')->group(function () {
     Route::get('{categoris}/edit', [CategoryController::class, 'edit'])->name('edit');  // Menampilkan form edit unit
     Route::put('{categoris}', [CategoryController::class, 'update'])->name('update');  // Proses update unit
     Route::delete('{categoris}', [CategoryController::class, 'destroy'])->name('destroy');  // Proses delete unit
+});
+Route::prefix('item')->name('item.')->group(function () {
+    Route::get('/', [ItemController::class, 'index'])->name('index');  // Menampilkan list unit
+    Route::get('/create', [ItemController::class, 'create'])->name('create');  // Menampilkan form create unit
+    Route::post('/', [ItemController::class, 'store'])->name('store');  // Proses create unit
+    Route::get('{item}/edit', [ItemController::class, 'edit'])->name('edit');  // Menampilkan form edit unit
+    Route::put('{item}', [ItemController::class, 'update'])->name('update');  // Proses update unit
+    Route::delete('{item}', [ItemController::class, 'destroy'])->name('destroy');  // Proses delete unit
 });
 
 require __DIR__.'/auth.php';
