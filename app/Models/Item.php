@@ -9,6 +9,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 class Item extends Model
 {
     use HasFactory, SoftDeletes;
+    protected $primaryKey = 'item_id'; 
 
     // Hanya atribut ini yang dapat diisi melalui mass assignment
     protected $fillable = [

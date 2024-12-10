@@ -50,10 +50,10 @@
                         <tr>
                             <th class="px-6 py-4 text-left text-sm font-medium text-gray-600 dark:text-gray-200"></th>
                             <th class="px-6 py-4 text-left text-sm font-medium text-gray-600 dark:text-gray-200">No</th>
-                            <th class="px-6 py-4 text-left text-sm font-medium text-gray-600 dark:text-gray-200">Code</th>
+                            <th class="px-6 py-4 text-left text-sm font-medium text-gray-600 dark:text-gray-200">Unit Code</th>
                             <th class="px-6 py-4 text-left text-sm font-medium text-gray-600 dark:text-gray-200">Name</th>
                             <th class="px-6 py-4 text-left text-sm font-medium text-gray-600 dark:text-gray-200">Category</th>
-                            <th class="px-6 py-4 text-left text-sm font-medium text-gray-600 dark:text-gray-200">Unit</th>
+                            <th class="px-6 py-4 text-left text-sm font-medium text-gray-600 dark:text-gray-200">Unit name</th>
                             <th class="px-6 py-4 text-left text-sm font-medium text-gray-600 dark:text-gray-200">Stock</th>
                             <th class="px-6 py-4 text-left text-sm font-medium text-gray-600 dark:text-gray-200">Created At</th>
                             <th class="px-6 py-4 text-left text-sm font-medium text-gray-600 dark:text-gray-200">Updated At</th>
@@ -68,7 +68,7 @@
                                 <td class="px-6 py-4 text-sm text-gray-800 dark:text-gray-200">{{ $item->unit ? $item->unit->code : 'No code' }}</td>
                                 <td class="px-6 py-4 text-sm text-gray-800 dark:text-gray-200">{{ $item->item_name }}</td>
                                 <td class="px-6 py-4 text-sm text-gray-800 dark:text-gray-200">{{ $item->category ? $item->category->category_name : 'No Category' }}</td>
-                                <td class="px-6 py-4 text-sm text-gray-800 dark:text-gray-200">{{ $item->unit->name }}</td>
+                                <td class="px-6 py-4 text-sm text-gray-800 dark:text-gray-200">{{ $item->unit ? $item->unit->name : 'No name' }}</td>
                                 <td class="px-6 py-4 text-sm text-gray-800 dark:text-gray-200">{{ $item->stock }}</td>
                                 <td class="px-6 py-4 text-sm text-gray-800 dark:text-gray-200">{{ $item->created_at->format('d M Y') }}</td>
                                 <td class="px-6 py-4 text-sm text-gray-800 dark:text-gray-200">{{ $item->updated_at->format('d M Y') }}</td>
@@ -78,7 +78,7 @@
                                         <i class="fas fa-edit mr-1"></i> Edit
                                     </a>
 
-                                    <form action="{{ route('unit.destroy', $item->item_id) }}" method="POST" class="delete-form inline">
+                                    <form action="{{ route('item.destroy', $item->item_id) }}" method="POST" class="delete-form inline">
                                         @csrf
                                         @method('DELETE')
                                         <button type="button"
