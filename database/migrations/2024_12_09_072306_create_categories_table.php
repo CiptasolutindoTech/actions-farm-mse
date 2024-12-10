@@ -16,7 +16,6 @@ return new class extends Migration
             $table->string('category_nama');
             $table->smallInteger('data_state')->default(0)->nullable();
             $table->softDeletes();
-            $table->timestamps();
         });
     }
 
