@@ -22,7 +22,7 @@ return new class extends Migration
                 $table->decimal('unit_price', 10, 2); // Harga jual
 
                 // Foreign keys
-                $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade')->onUpdate('cascade');
+                $table->foreign('category_id')->references('category_id')->on('categoris')->onDelete('cascade')->onUpdate('cascade');
                 $table->foreign('unit_id')->references('id')->on('units')->onDelete('cascade')->onUpdate('cascade');
 
                 $table->smallInteger('data_state')->default(0)->nullable();
