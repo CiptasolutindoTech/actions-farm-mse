@@ -39,7 +39,7 @@ return new class extends Migration
                [ 'id_menu' => 73, 'id' => 'journal-memorial',   'type' => 'file','text' => 'Jurnal Memorial','parent_id' => "7",'menu_level' => "2",],
                [ 'id_menu' => 74, 'id' => 'balance-sheet',      'type' => 'file','text' => 'Laporan Neraca','parent_id' => "7",'menu_level' => "2",],
                [ 'id_menu' => 75, 'id' => 'profit-loss-report', 'type' => 'file','text' => 'Laporan Laba Rugi','parent_id' => "7",'menu_level' => "2",],
-               [ 'id_menu' => 76, 'id' => 'feed',               'type' => 'file','text' => 'Feed','parent_id' => "7",'menu_level' => "2",],
+               [ 'id_menu' => 76, 'id' => 'feed',               'type' => 'file','text' => 'Pakan','parent_id' => "7",'menu_level' => "2",],
                [ 'id_menu' => 8,  'id' => '#',                  'type' => 'folder','text' => 'Preferensi','parent_id' => "#",'menu_level' => "1",],
                [ 'id_menu' => 81, 'id' => 'preference-company', 'type' => 'file','text' => 'Perusahaan','parent_id' => "8",'menu_level' => "2",],
                [ 'id_menu' => 82, 'id' => 'unit',               'type' => 'file','text' => 'Satuan','parent_id' => "8",'menu_level' => "2",],
