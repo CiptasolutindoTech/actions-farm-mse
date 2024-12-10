@@ -57,7 +57,7 @@
                     <label for="item_id" class="block text-sm font-medium text-gray-700 dark:text-gray-300">Item</label>
                     <select id="item_id" name="item_id" class="mt-1 block w-full border border-gray-300 dark:border-gray-600 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:text-gray-200">
                         <option value="">Select an Item</option>
-                        @foreach($items as $item)
+                        @foreach($feeds as $feed)
                             <option value="{{ $item->id }}" {{ old('item_id') == $item->id ? 'selected' : '' }}>
                                 {{ $item->name }}
                             </option>
