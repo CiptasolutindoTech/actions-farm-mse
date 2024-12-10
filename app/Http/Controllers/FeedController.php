@@ -37,41 +37,40 @@ class FeedController extends Controller
      * @return \Illuminate\Http\RedirectResponse
      */
     public function store(Request $request)
-{
-    // Start a database transaction
-    DB::beginTransaction();
+    {
+        // Start a database transaction
+        DB::beginTransaction();
 
-    try {
-        // Validate the request data
-        $request->validate([
-            'item_id' => 'required|exists:items,id', // Validasi untuk item_id
-            'feed_type' => 'required|in:Herbivore,Carnivore,Omnivore', // Validasi untuk feed_type
-            'expiration_date' => 'required|date|after:today', // Validasi untuk expiration_date
-        ]);
+        try {
+            // Validate the request data
+            $request->validate([
+                'item_id' => 'required|exists:items,id', // Validasi untuk item_id
+                'feed_type' => 'required|in:Herbivore,Carnivore,Omnivore', // Validasi untuk feed_type
+                'expiration_date' => 'required|date|after:today', // Validasi untuk expiration_date
+            ]);
 
-        // Create the new feed
-        Feed::create([
-            'item_id' => $request->item_id,
-            'feed_type' => $request->feed_type,
-            'expiration_date' => $request->expiration_date,
-        ]);
+            // Create the new feed
+            Feed::create([
+                'item_id' => $request->item_id,
+                'feed_type' => $request->feed_type,
+                'expiration_date' => $request->expiration_date,
+            ]);
 
-        // Commit the transaction
-        DB::commit();
+            // Commit the transaction
+            DB::commit();
 
-        // Flash success message to session
-        session()->flash('success', 'Feed created successfully.');
-    } catch (\Exception $e) {
-        // Rollback the transaction if something goes wrong
-        DB::rollBack();
+            // Flash success message to session
+            session()->flash('success', 'Feed created successfully.');
+        } catch (\Exception $e) {
+            // Rollback the transaction if something goes wrong
+            DB::rollBack();
 
-        // Flash error message to session
-        session()->flash('error', 'Failed to create feed. Please try again.');
+            // Flash error message to session
+            session()->flash('error', 'Failed to create feed. Please try again.');
+        }
+
+        return redirect()->route('feed.index');
     }
-
-    return redirect()->route('feed.index');
-}
-
 
     /**
      * Menampilkan form edit untuk Feed.
