@@ -37,6 +37,7 @@ return new class extends Migration
                 ['user_group_id' => 1,'id_menu' => 73  ],
                 ['user_group_id' => 1,'id_menu' => 74 ],
                 ['user_group_id' => 1,'id_menu' => 75 ],
+                ['user_group_id' => 1,'id_menu' => 76 ],
                 ['user_group_id' => 1,'id_menu' => 8 ],
                 ['user_group_id' => 1,'id_menu' => 81 ],
                 ['user_group_id' => 1,'id_menu' => 81 ],
@@ -45,11 +46,13 @@ return new class extends Migration
                 ['user_group_id' => 1,'id_menu' => 84 ],
                 ['user_group_id' => 1,'id_menu' => 85 ],
                 ['user_group_id' => 1,'id_menu' => 86 ],
+                ['user_group_id' => 1,'id_menu' => 866 ],
                 ['user_group_id' => 1,'id_menu' => 87 ],
                 ['user_group_id' => 1,'id_menu' => 88 ],
                 ['user_group_id' => 1,'id_menu' => 89 ],
                 ['user_group_id' => 1,'id_menu' => 9 ],
                 ['user_group_id' => 1,'id_menu' => 91 ],
+                ['user_group_id' => 1,'id_menu' => 92 ],
                 ['user_group_id' => 1,'id_menu' => 911 ],
             ]);
         }

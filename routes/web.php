@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CategoryController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MenuController;
@@ -40,6 +41,14 @@ Route::prefix('unit')->name('unit.')->group(function () {
     Route::get('{unit}/edit', [UnitController::class, 'edit'])->name('edit');  // Menampilkan form edit unit
     Route::put('{unit}', [UnitController::class, 'update'])->name('update');  // Proses update unit
     Route::delete('{unit}', [UnitController::class, 'destroy'])->name('destroy');  // Proses delete unit
+});
+Route::prefix('category')->name('category.')->group(function () {
+    Route::get('/', [CategoryController::class, 'index'])->name('index');  // Menampilkan list unit
+    Route::get('/create', [CategoryController::class, 'create'])->name('create');  // Menampilkan form create unit
+    Route::post('/', [CategoryController::class, 'store'])->name('store');  // Proses create unit
+    Route::get('{categoris}/edit', [CategoryController::class, 'edit'])->name('edit');  // Menampilkan form edit unit
+    Route::put('{categoris}', [CategoryController::class, 'update'])->name('update');  // Proses update unit
+    Route::delete('{categoris}', [CategoryController::class, 'destroy'])->name('destroy');  // Proses delete unit
 });
 
 require __DIR__.'/auth.php';
