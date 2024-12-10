@@ -7,7 +7,6 @@ use App\Http\Controllers\FeedController;
 use App\Http\Controllers\MenuController;
 use App\Http\Controllers\UnitController;
 use App\Http\Controllers\CategoryController;
-use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\Auth\LoginController;
 
 
