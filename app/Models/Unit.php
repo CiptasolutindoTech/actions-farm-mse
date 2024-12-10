@@ -17,4 +17,9 @@ class Unit extends Model
     protected $dates = ['deleted_at'];
     // If you're using timestamps (created_at, updated_at), ensure that the $timestamps property is not set to false
     // protected $timestamps = false; // Uncomment this line if you are not using timestamps
+
+    public function items()
+    {
+        return $this->hasMany(Item::class, 'unit_id', 'id');
+    }
 }
