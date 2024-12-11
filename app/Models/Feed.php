@@ -11,52 +11,36 @@ class Feed extends Model
     use HasFactory, SoftDeletes;
 
     /**
-     * Nama tabel di database.
+     * Nama tabel yang digunakan oleh model ini.
      *
      * @var string
      */
     protected $table = 'feeds';
 
-    /**
-     * Primary key dari tabel.
-     *
-     * @var string
-     */
-    protected $primaryKey = 'item_id';
+    protected $primaryKey = 'feed_id'; // Ganti dengan nama kolom primary key yang sebenarnya
 
     /**
-     * Primary key bukan incrementing.
-     *
-     * @var bool
-     */
-    public $incrementing = false;
-
-    /**
-     * Tipe data primary key.
-     *
-     * @var string
-     */
-    protected $keyType = 'unsignedBigInteger';
-
-    /**
-     * Kolom-kolom yang dapat diisi (mass assignable).
+     * Kolom yang dapat diisi (mass assignable).
      *
      * @var array
      */
     protected $fillable = [
+        'item_id',
         'feed_type',
         'expiration_date',
     ];
 
     /**
-     * Format tanggal otomatis.
+     * Kolom yang harus dimutakhirkan secara otomatis oleh Eloquent.
      *
-     * @var string
+     * @var array
      */
-    protected $dates = ['deleted_at', 'expiration_date'];
+    protected $dates = ['created_at', 'updated_at', 'expiration_date'];
+
 
     /**
-     * Relasi dengan tabel `items`.
+     * Relasi dengan model Item.
+     * Feed memiliki satu Item.
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */

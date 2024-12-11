@@ -13,5 +13,11 @@ class FeedSeeder extends Seeder
     public function run(): void
     {
         //
+        Feed::create([
+            'item_id' => 1, // Sesuaikan dengan item_id yang ada
+            'feed_type' => 'Herbivore',
+            'expiration_date' => '2024-12-11',
+        ]);
+        
     }
 }

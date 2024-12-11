@@ -50,6 +50,7 @@
                         <tr>
                             <th class="px-6 py-4 text-left text-sm font-medium text-gray-600 dark:text-gray-200"></th>
                             <th class="px-6 py-4 text-left text-sm font-medium text-gray-600 dark:text-gray-200">No</th>
+                            <th class="px-6 py-4 text-left text-sm font-medium text-gray-600 dark:text-gray-200">Item</th>
                             <th class="px-6 py-4 text-left text-sm font-medium text-gray-600 dark:text-gray-200">Feed Type</th>
                             <th class="px-6 py-4 text-left text-sm font-medium text-gray-600 dark:text-gray-200">Expiration Date</th>
                             <th class="px-6 py-4 text-left text-sm font-medium text-gray-600 dark:text-gray-200">Created At</th>
@@ -58,32 +59,41 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach($feeds as $feed)
-                            <tr class="hover:bg-gray-50 dark:hover:bg-gray-700">
-                                <td class="px-6 py-4 text-sm"></td>
-                                <td class="px-6 py-4 text-sm text-gray-800 dark:text-gray-200">{{ $feed->item_id }}</td>
-                                <td class="px-6 py-4 text-sm text-gray-800 dark:text-gray-200">{{ $feed->feed_type }}</td>
-                                <td class="px-6 py-4 text-sm text-gray-800 dark:text-gray-200">{{ $feed->expiration_date->format('d M Y') }}</td>
-                                <td class="px-6 py-4 text-sm text-gray-800 dark:text-gray-200">{{ $feed->created_at->format('d M Y') }}</td>
-                                <td class="px-6 py-4 text-sm text-gray-800 dark:text-gray-200">{{ $feed->updated_at->format('d M Y') }}</td>
-                                <td class="px-6 py-4 text-sm flex space-x-2">
-                                    <a href="{{ route('feed.edit', $feed->item_id) }}"
-                                       class="bg-blue-100 dark:bg-blue-900 text-blue-700 dark:text-blue-300 px-3 py-1 rounded-lg hover:bg-blue-200 dark:hover:bg-blue-800 transition duration-200 ease-in-out flex items-center">
-                                        <i class="fas fa-edit mr-1"></i> Edit
-                                    </a>
+                    @foreach($feeds as $feed)
+                        <tr class="hover:bg-gray-50 dark:hover:bg-gray-700">
+                            <td class="px-6 py-4 text-sm"></td>
+                            <td class="px-6 py-4 text-sm text-gray-800 dark:text-gray-200">{{ $feed->feed_id }}</td>
+                            <td class="px-6 py-4 text-sm text-gray-800 dark:text-gray-200">{{ $feed->item ? $feed->item->item_name : 'No name' }}</td>
+                            <td class="px-6 py-4 text-sm text-gray-800 dark:text-gray-200">{{ $feed->feed_type }}</td>
+                            <td class="px-6 py-4 text-sm text-gray-800 dark:text-gray-200">
+                                {{ $feed->expiration_date ? \Carbon\Carbon::parse($feed->expiration_date)->format('d M Y') : 'No date' }}
+                            </td>
 
-                                    <form action="{{ route('feed.destroy', $feed->item_id) }}" method="POST" class="delete-form inline">
-                                        @csrf
-                                        @method('DELETE')
-                                        <button type="button"
-                                                onclick="confirmDelete(this)"
-                                                class="bg-red-100 dark:bg-red-900 text-red-700 dark:text-red-300 px-3 py-1 rounded-lg hover:bg-red-200 dark:hover:bg-red-800 transition duration-200 ease-in-out flex items-center">
-                                            <i class="fas fa-trash-alt mr-1"></i> Delete
-                                        </button>
-                                    </form>
-                                </td>
-                            </tr>
-                        @endforeach
+                            <td class="px-6 py-4 text-sm text-gray-800 dark:text-gray-200">
+                                {{ $feed->created_at ? $feed->created_at->format('d M Y') : 'No date' }}
+                            </td>
+
+                            <td class="px-6 py-4 text-sm text-gray-800 dark:text-gray-200">
+                                {{ $feed->updated_at ? $feed->updated_at->format('d M Y') : 'No date' }}
+                            </td>
+
+                            <td class="px-6 py-4 text-sm flex space-x-2">
+                                <a href="{{ route('feed.edit', $feed->feed_id) }}"
+                                    class="bg-blue-100 dark:bg-blue-900 text-blue-700 dark:text-blue-300 px-3 py-1 rounded-lg hover:bg-blue-200 dark:hover:bg-blue-800 transition duration-200 ease-in-out flex items-center">
+                                    <i class="fas fa-edit mr-1"></i> Edit
+                                </a>
+                                <form action="{{ route('feed.destroy', $feed->feed_id) }}" method="POST" class="delete-form inline">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="button" onclick="confirmDelete(this)" 
+                                        class="bg-red-100 dark:bg-red-900 text-red-700 dark:text-red-300 px-3 py-1 rounded-lg hover:bg-red-200 dark:hover:bg-red-800 transition duration-200 ease-in-out flex items-center">
+                                        <i class="fas fa-trash mr-1"></i> Delete
+                                    </button>
+                                </form>
+                            </td>
+                        </tr>
+                    @endforeach
+
                     </tbody>
                 </table>
             </div>
