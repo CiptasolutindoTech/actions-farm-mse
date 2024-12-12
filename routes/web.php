@@ -2,10 +2,11 @@
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\ItemController;
 use App\Http\Controllers\FeedController;
+use App\Http\Controllers\ItemController;
 use App\Http\Controllers\MenuController;
 use App\Http\Controllers\UnitController;
+use App\Http\Controllers\HewanController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\Auth\LoginController;
 
@@ -67,6 +68,14 @@ Route::prefix('feed')->name('feed.')->group(function () {
     Route::get('{feed}/edit', [FeedController::class, 'edit'])->name('edit');  // Menampilkan form edit unit
     Route::put('{feed}', [FeedController::class, 'update'])->name('update');  // Proses update unit
     Route::delete('{feed}', [FeedController::class, 'destroy'])->name('destroy');  // Proses delete unit
+});
+Route::prefix('hewan')->name('hewan.')->group(function () {
+    Route::get('/', [HewanController::class, 'index'])->name('index');  // Menampilkan list unit
+    Route::get('/create', [HewanController::class, 'create'])->name('create');  // Menampilkan form create unit
+    Route::post('/', [HewanController::class, 'store'])->name('store');  // Proses create unit
+    Route::get('{hewan}/edit', [HewanController::class, 'edit'])->name('edit');  // Menampilkan form edit unit
+    Route::put('{hewan}', [HewanController::class, 'update'])->name('update');  // Proses update unit
+    Route::delete('{hewan}', [HewanController::class, 'destroy'])->name('destroy');  // Proses delete unit
 });
 
 require __DIR__.'/auth.php';
