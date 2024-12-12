@@ -26,8 +26,8 @@
                     <span class="mx-0">-</span>
                 </li>
                 <li>
-                    <a href="{{ route('feed.index') }}" class="text-blue-600 font-semibold hover:text-blue-700">
-                        Feeds
+                    <a href="{{ route('hewan.index') }}" class="text-blue-600 font-semibold hover:text-blue-700">
+                        Animals
                     </a>
                 </li>
             </ol>
@@ -37,52 +37,45 @@
         <div class="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-md shadow-lg overflow-hidden mx-5">
             <!-- Title and button container with justify-between -->
             <div class="flex justify-between items-center mb-6 mx-8 my-2">
-                <h1 class="text-2xl font-semibold text-gray-800 dark:text-gray-200 mx-2">Feeds</h1>
-                <a href="{{ route('feed.create') }}" class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-lg inline-block transition duration-200 ease-in-out flex items-center">
-                    <i class="fas fa-plus mr-2"></i> {{ __('Tambah Feed') }}
+                <h1 class="text-2xl font-semibold text-gray-800 dark:text-gray-200 mx-2">Animals</h1>
+                <a href="{{ route('hewan.create') }}" class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-lg inline-block transition duration-200 ease-in-out flex items-center">
+                    <i class="fas fa-plus mr-2"></i> {{ __('Add New Animal') }}
                 </a>
             </div>
 
             <!-- Table Header -->
             <div class="overflow-x-auto mx-2">
-                <table id="feeds-table" class="min-w-full bg-white dark:bg-gray-800 table-auto">
+                <table id="animals-table" class="min-w-full bg-white dark:bg-gray-800 table-auto">
                     <thead class="bg-gray-100 dark:bg-gray-700">
                         <tr>
                             <th class="px-6 py-4 text-left text-sm font-medium text-gray-600 dark:text-gray-200"></th>
                             <th class="px-6 py-4 text-left text-sm font-medium text-gray-600 dark:text-gray-200">No</th>
-                            <th class="px-6 py-4 text-left text-sm font-medium text-gray-600 dark:text-gray-200">Item</th>
-                            <th class="px-6 py-4 text-left text-sm font-medium text-gray-600 dark:text-gray-200">Feed Type</th>
-                            <th class="px-6 py-4 text-left text-sm font-medium text-gray-600 dark:text-gray-200">Expiration Date</th>
+                            <th class="px-6 py-4 text-left text-sm font-medium text-gray-600 dark:text-gray-200">Name</th>
+                            <th class="px-6 py-4 text-left text-sm font-medium text-gray-600 dark:text-gray-200">Species</th>
+                            <th class="px-6 py-4 text-left text-sm font-medium text-gray-600 dark:text-gray-200">Date of Birth</th>
+                            <th class="px-6 py-4 text-left text-sm font-medium text-gray-600 dark:text-gray-200">Gender</th>
                             <th class="px-6 py-4 text-left text-sm font-medium text-gray-600 dark:text-gray-200">Created At</th>
                             <th class="px-6 py-4 text-left text-sm font-medium text-gray-600 dark:text-gray-200">Updated At</th>
                             <th class="px-6 py-4 text-left text-sm font-medium text-gray-600 dark:text-gray-200">Actions</th>
                         </tr>
                     </thead>
                     <tbody>
-                    @foreach($feeds as $feed)
+                    @foreach($hewan as $animal)
                         <tr class="hover:bg-gray-50 dark:hover:bg-gray-700">
                             <td class="px-6 py-4 text-sm"></td>
-                            <td class="px-6 py-4 text-sm text-gray-800 dark:text-gray-200">{{ $feed->feed_id }}</td>
-                            <td class="px-6 py-4 text-sm text-gray-800 dark:text-gray-200">{{ $feed->item ? $feed->item->item_name : 'No name' }}</td>
-                            <td class="px-6 py-4 text-sm text-gray-800 dark:text-gray-200">{{ $feed->feed_type }}</td>
-                            <td class="px-6 py-4 text-sm text-gray-800 dark:text-gray-200">
-                                {{ $feed->expiration_date ? \Carbon\Carbon::parse($feed->expiration_date)->format('d M Y') : 'No date' }}
-                            </td>
-
-                            <td class="px-6 py-4 text-sm text-gray-800 dark:text-gray-200">
-                                {{ $feed->created_at ? $feed->created_at->format('d M Y') : 'No date' }}
-                            </td>
-
-                            <td class="px-6 py-4 text-sm text-gray-800 dark:text-gray-200">
-                                {{ $feed->updated_at ? $feed->updated_at->format('d M Y') : 'No date' }}
-                            </td>
-
+                            <td class="px-6 py-4 text-sm text-gray-800 dark:text-gray-200">{{ $loop->iteration }}</td>
+                            <td class="px-6 py-4 text-sm text-gray-800 dark:text-gray-200">{{ $animal->animal_Name }}</td>
+                            <td class="px-6 py-4 text-sm text-gray-800 dark:text-gray-200">{{ $animal->species }}</td>
+                            <td class="px-6 py-4 text-sm text-gray-800 dark:text-gray-200">{{ $animal->date_of_birth ? $animal->date_of_birth->format('d M Y') : 'No date' }}</td>
+                            <td class="px-6 py-4 text-sm text-gray-800 dark:text-gray-200">{{ ucfirst($animal->gender) }}</td>
+                            <td class="px-6 py-4 text-sm text-gray-800 dark:text-gray-200">{{ $animal->created_at->format('d M Y') }}</td>
+                            <td class="px-6 py-4 text-sm text-gray-800 dark:text-gray-200">{{ $animal->updated_at->format('d M Y') }}</td>
                             <td class="px-6 py-4 text-sm flex space-x-2">
-                                <a href="{{ route('feed.edit', $feed->feed_id) }}"
+                                <a href="{{ route('hewan.edit', $animal->animal_ID) }}"
                                     class="bg-blue-100 dark:bg-blue-900 text-blue-700 dark:text-blue-300 px-3 py-1 rounded-lg hover:bg-blue-200 dark:hover:bg-blue-800 transition duration-200 ease-in-out flex items-center">
                                     <i class="fas fa-edit mr-1"></i> Edit
                                 </a>
-                                <form action="{{ route('feed.destroy', $feed->feed_id) }}" method="POST" class="delete-form inline">
+                                <form action="{{ route('hewan.destroy', $animal->animal_ID) }}" method="POST" class="delete-form inline">
                                     @csrf
                                     @method('DELETE')
                                     <button type="button" onclick="confirmDelete(this)" 
@@ -100,14 +93,14 @@
 
             <!-- Pagination -->
             <div class="mt-6 px-4 py-2">
-                {{ $feeds->links() }}
+                {{ $hewan->links() }}
             </div>
         </div>
     </div>
 
     <script>
         $(document).ready(function() {
-            $('#feeds-table').DataTable({
+            $('#animals-table').DataTable({
                 paging: true,
                 searching: true,
                 info: true,

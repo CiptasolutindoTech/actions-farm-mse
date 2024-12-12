@@ -37,6 +37,11 @@ class Item extends Model
         return $this->belongsTo(Unit::class, 'unit_id', 'id');
     }
 
+    public function feeds()
+    {
+        return $this->hasMany(Feed::class, 'item_id', 'item_id');
+    }
+
     public function obat()
     {
         return $this->hasMany(Unit::class, 'item_id', 'item_id');
