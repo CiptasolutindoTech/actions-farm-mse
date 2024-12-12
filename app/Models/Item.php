@@ -37,6 +37,11 @@ class Item extends Model
         return $this->belongsTo(Unit::class, 'unit_id', 'id');
     }
 
+    public function obat()
+    {
+        return $this->hasMany(Unit::class, 'item_id', 'item_id');
+    }
+
     // Mendeklarasikan kolom soft delete
     protected $dates = ['deleted_at'];
 }
