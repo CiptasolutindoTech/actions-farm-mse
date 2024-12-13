@@ -21,7 +21,7 @@
                     <span class="mx-0">-</span>
                 </li>
                 <li>
-                    <span class="text-gray-600 dark:text-gray-400">Add New Animal</span>
+                    <span class="text-gray-600 dark:text-gray-400">Edit Animal</span>
                 </li>
             </ol>
         </nav>
@@ -30,14 +30,16 @@
             <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
                 <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
                     <div class="p-6 text-gray-900 dark:text-gray-100">
-                        <form action="{{ route('hewan.store') }}" method="POST">
+                        <form action="{{ route('hewan.update', $animal->animal_ID) }}" method="POST">
                             @csrf
+                            @method('PUT')
+
                             <!-- Animal Name -->
                             <div class="mb-4">
                                 <label for="animal_Name" class="block text-sm font-medium text-gray-700 dark:text-gray-300">
                                     {{ __('Animal Name') }}
                                 </label>
-                                <input type="text" name="animal_Name" id="animal_Name" class="mt-1 block w-full rounded-md shadow-sm bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-200" required>
+                                <input type="text" name="animal_Name" id="animal_Name" value="{{ old('animal_Name', $animal->animal_Name) }}" class="mt-1 block w-full rounded-md shadow-sm bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-200" required>
                                 @error('animal_Name')
                                     <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
                                 @enderror
@@ -48,7 +50,7 @@
                                 <label for="species" class="block text-sm font-medium text-gray-700 dark:text-gray-300">
                                     {{ __('Species') }}
                                 </label>
-                                <input type="text" name="species" id="species" class="mt-1 block w-full rounded-md shadow-sm bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-200" required>
+                                <input type="text" name="species" id="species" value="{{ old('species', $animal->species) }}" class="mt-1 block w-full rounded-md shadow-sm bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-200" required>
                                 @error('species')
                                     <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
                                 @enderror
@@ -59,7 +61,7 @@
                                 <label for="date_of_birth" class="block text-sm font-medium text-gray-700 dark:text-gray-300">
                                     {{ __('Date of Birth') }}
                                 </label>
-                                <input type="date" name="date_of_birth" id="date_of_birth" class="mt-1 block w-full rounded-md shadow-sm bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-200">
+                                <input type="date" name="date_of_birth" id="date_of_birth" value="{{ old('date_of_birth', $animal->date_of_birth) }}" class="mt-1 block w-full rounded-md shadow-sm bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-200">
                                 @error('date_of_birth')
                                     <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
                                 @enderror
@@ -71,8 +73,8 @@
                                     {{ __('Gender') }}
                                 </label>
                                 <select name="gender" id="gender" class="mt-1 block w-full rounded-md shadow-sm bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-200" required>
-                                    <option value="male">Male</option>
-                                    <option value="female">Female</option>
+                                    <option value="male" {{ old('gender', $animal->gender) == 'male' ? 'selected' : '' }}>Male</option>
+                                    <option value="female" {{ old('gender', $animal->gender) == 'female' ? 'selected' : '' }}>Female</option>
                                 </select>
                                 @error('gender')
                                     <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
@@ -81,7 +83,7 @@
 
                             <div class="flex justify-start">
                                 <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded mr-2">
-                                    {{ __('Save') }}
+                                    {{ __('Update') }}
                                 </button>
                                 <a href="{{ route('hewan.index') }}" class="bg-gray-500 text-white px-4 py-2 rounded">
                                     {{ __('Cancel') }}

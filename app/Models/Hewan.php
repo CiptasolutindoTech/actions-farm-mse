@@ -22,18 +22,19 @@ class Hewan extends Model
      *
      * @var string
      */
-    protected $primaryKey = 'Animal_ID';
+    protected $primaryKey = 'animal_ID';
 
     /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
-    protected $fillable = [
-        'Animal_Name',
-        'Species',
-        'Date_of_Birth',
-        'Gender',
+    protected $fillable = ['animal_Name', 'species', 'date_of_birth', 'gender'];
+
+    protected $casts = [
+        'date_of_birth' => 'date',
+        'created_at' => 'datetime',
+        'updated_at' => 'datetime',
     ];
 
     /**
@@ -42,7 +43,7 @@ class Hewan extends Model
      * @var array
      */
     protected $dates = [
-        'Date_of_Birth',
+        'date_of_birth',
         'deleted_at',
     ];
 }

@@ -43,10 +43,10 @@ class HewanController extends Controller
         try {
             // Validasi data
             $validatedData = $request->validate([
-                'Animal_Name' => 'required|string|max:255',
-                'Species' => 'required|string|max:255',
-                'Date_of_Birth' => 'required|date',
-                'Gender' => 'required|in:Male,Female',
+                'animal_Name' => 'required|string|max:255',
+                'species' => 'required|string|max:255',
+                'date_of_birth' => 'nullable|date',
+                'gender' => 'required|in:male,female',
             ]);
 
             // Buat hewan baru
@@ -74,9 +74,10 @@ class HewanController extends Controller
      * @param \App\Models\Hewan $hewan
      * @return \Illuminate\Http\Response
      */
-    public function edit(Hewan $hewan)
+    public function edit($id)
     {
-        return view('content.Hewan.edit', compact('hewan'));
+        $animal = Hewan::findOrFail($id);
+        return view('content.Hewan.edit', compact('animal'));
     }
 
     /**
@@ -94,10 +95,10 @@ class HewanController extends Controller
         try {
             // Validasi data
             $validatedData = $request->validate([
-                'Animal_Name' => 'required|string|max:255',
-                'Species' => 'required|string|max:255',
-                'Date_of_Birth' => 'required|date',
-                'Gender' => 'required|in:Male,Female',
+                'animal_Name' => 'required|string|max:255',
+                'species' => 'required|string|max:255',
+                'date_of_birth' => 'nullable|date',
+                'gender' => 'required|in:male,female',
             ]);
 
             // Perbarui data hewan
