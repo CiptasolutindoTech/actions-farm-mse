@@ -15,7 +15,11 @@ class Obat extends Model
 
     protected $primaryKey = 'id';
 
-    // Kolom yang dapat diisi secara massal
+    /**
+     * Kolom yang dapat diisi (mass assignable).
+     *
+     * @var array
+     */
     protected $fillable = [
         'item_id',
         'medicine_type',
@@ -23,8 +27,9 @@ class Obat extends Model
         'expiration_date',
     ];
 
-    // Kolom yang akan dianggap sebagai timestamp soft delete
-    protected $dates = ['created_at','updated_at','deleted_at', 'expiration_date'];
+    // Properti casting untuk kolom tertentu
+    protected $dates = ['created_at', 'updated_at', 'expiration_date'];
+
 
     /**
      * Mendefinisikan relasi dengan model Item
@@ -34,7 +39,4 @@ class Obat extends Model
     {
         return $this->belongsTo(Item::class, 'item_id', 'item_id');
     }
-
-    // Opsional: Menambahkan aksesors dan mutators jika diperlukan
-    // Contoh, untuk format tanggal kadaluarsa
 }
