@@ -46,4 +46,8 @@ class Hewan extends Model
         'date_of_birth',
         'deleted_at',
     ];
+    public function cage()
+    {
+        return $this->hasMany(Cage::class);
+    }
 }
