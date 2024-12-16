@@ -24,6 +24,7 @@ return new class extends Migration
              // Insert admin user
             DB::table('system_menu_mapping')->insert([
                 ['user_group_id' => 1,'id_menu' => 1  ],
+                ['user_group_id' => 1,'id_menu' => 10 ],
                 ['user_group_id' => 1,'id_menu' => 2  ],
                 ['user_group_id' => 1,'id_menu' => 21  ],
                 ['user_group_id' => 1,'id_menu' => 3  ],
