@@ -49,7 +49,7 @@ class CageController extends Controller
                 'animal_id' => 'required|exists:animals,animal_id',
             ]);
 
-            // Create the new Category
+            // Create the new Cage
             Cage::create($request->all());
 
             // Commit the transaction
@@ -67,19 +67,19 @@ class CageController extends Controller
 
         return redirect()->route('cage.index');
     }
-    public function edit(Category $categoris)
+    public function edit(Cage $cages)
     {
-        return view('content.Category.edit', compact('categoris'));
+        return view('content.Cage.edit', compact('cages'));
     }
 
     /**
-     * Memperbarui data Category.
+     * Memperbarui data Cage.
      *
      * @param \Illuminate\Http\Request $request
-     * @param \App\Models\Category $categoris
+     * @param \App\Models\Cage $cages
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function update(Request $request, Category $categoris)
+    public function update(Request $request, Cage $cages)
     {
         // Start a database transaction
         DB::beginTransaction();
@@ -87,56 +87,56 @@ class CageController extends Controller
         try {
             // Validate the request data
             $request->validate([
-                'category_name' => 'required',
+                'Cage_name' => 'required',
             ]);
 
-            // Update the Category
-            $categoris->update($request->all());
+            // Update the Cage
+            $cages->update($request->all());
 
             // Commit the transaction
             DB::commit();
 
             // Flash success message to session
-            session()->flash('success', 'Category updated successfully.');
+            session()->flash('success', 'Cage updated successfully.');
         } catch (\Exception $e) {
             // Rollback the transaction if something goes wrong
             DB::rollBack();
 
             // Flash error message to session
-            session()->flash('error', 'Failed to update category. Please try again.');
+            session()->flash('error', 'Failed to update Cage. Please try again.');
         }
 
-        return redirect()->route('category.index');
+        return redirect()->route('Cage.index');
     }
 
     /**
-     * Menghapus Category.
+     * Menghapus Cage.
      *
-     * @param \App\Models\Category $categoris
+     * @param \App\Models\Cage $cages
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function destroy(Category $categoris)
+    public function destroy(Cage $cages)
     {
         // Start a database transaction
         DB::beginTransaction();
 
         try {
-            // Delete the Category
-            $categoris->delete();
+            // Delete the Cage
+            $cages->delete();
 
             // Commit the transaction
             DB::commit();
 
             // Flash success message to session
-            session()->flash('success', 'Category deleted successfully.');
+            session()->flash('success', 'Cage deleted successfully.');
         } catch (\Exception $e) {
             // Rollback the transaction if something goes wrong
             DB::rollBack();
 
             // Flash error message to session
-            session()->flash('error', 'Failed to delete category. Please try again.');
+            session()->flash('error', 'Failed to delete Cage. Please try again.');
         }
 
-        return redirect()->route('category.index');
+        return redirect()->route('Cage.index');
     }
 }
