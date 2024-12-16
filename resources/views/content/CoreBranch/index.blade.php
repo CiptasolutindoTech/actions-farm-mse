@@ -50,12 +50,14 @@
                         <tr>
                             <th class="px-6 py-4 text-left text-sm font-medium text-gray-600 dark:text-gray-200"></th>
                             <th class="px-6 py-4 text-left text-sm font-medium text-gray-600 dark:text-gray-200">No</th>
-                            <th class="px-6 py-4 text-left text-sm font-medium text-gray-600 dark:text-gray-200">Code</th>
-                            <th class="px-6 py-4 text-left text-sm font-medium text-gray-600 dark:text-gray-200">Name</th>
-                            <th class="px-6 py-4 text-left text-sm font-medium text-gray-600 dark:text-gray-200">City</th>
-                            <th class="px-6 py-4 text-left text-sm font-medium text-gray-600 dark:text-gray-200">Manager</th>
+                            <th class="px-6 py-4 text-left text-sm font-medium text-gray-600 dark:text-gray-200">Kode</th>
+                            <th class="px-6 py-4 text-left text-sm font-medium text-gray-600 dark:text-gray-200">Nama</th>
+                            <th class="px-6 py-4 text-left text-sm font-medium text-gray-600 dark:text-gray-200">Kota</th>
+                            <th class="px-6 py-4 text-left text-sm font-medium text-gray-600 dark:text-gray-200">Alamat</th>
+                            <th class="px-6 py-4 text-left text-sm font-medium text-gray-600 dark:text-gray-200">Kepala Manager</th>
                             <th class="px-6 py-4 text-left text-sm font-medium text-gray-600 dark:text-gray-200">Email</th>
-                            <th class="px-6 py-4 text-left text-sm font-medium text-gray-600 dark:text-gray-200">Actions</th>
+                            <th class="px-6 py-4 text-left text-sm font-medium text-gray-600 dark:text-gray-200">No. Telp</th>
+                            <th class="px-6 py-4 text-left text-sm font-medium text-gray-600 dark:text-gray-200">Aksi</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -66,8 +68,10 @@
                                 <td class="px-6 py-4 text-sm text-gray-800 dark:text-gray-200">{{ $branch->branch_code }}</td>
                                 <td class="px-6 py-4 text-sm text-gray-800 dark:text-gray-200">{{ $branch->branch_name }}</td>
                                 <td class="px-6 py-4 text-sm text-gray-800 dark:text-gray-200">{{ $branch->branch_city }}</td>
+                                <td class="px-6 py-4 text-sm text-gray-800 dark:text-gray-200">{{ $branch->branch_address }}</td>
                                 <td class="px-6 py-4 text-sm text-gray-800 dark:text-gray-200">{{ $branch->branch_manager }}</td>
                                 <td class="px-6 py-4 text-sm text-gray-800 dark:text-gray-200">{{ $branch->branch_email }}</td>
+                                <td class="px-6 py-4 text-sm text-gray-800 dark:text-gray-200">{{ $branch->branch_phone1 }}</td>
                                 <td class="px-6 py-4 text-sm flex space-x-2">
                                     <a href="{{ route('CoreBranch.edit', $branch->branch_id) }}"
                                        class="bg-blue-100 dark:bg-blue-900 text-blue-700 dark:text-blue-300 px-3 py-1 rounded-lg hover:bg-blue-200 dark:hover:bg-blue-800 transition duration-200 ease-in-out flex items-center">
