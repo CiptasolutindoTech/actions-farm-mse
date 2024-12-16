@@ -26,8 +26,8 @@
                     <span class="mx-0">-</span>
                 </li>
                 <li>
-                    <a href="{{ route('item.index') }}" class="text-blue-600 font-semibold hover:text-blue-700">
-                        Item
+                    <a href="{{ route('CoreBranch.index') }}" class="text-blue-600 font-semibold hover:text-blue-700">
+                        Core Branch
                     </a>
                 </li>
             </ol>
@@ -37,48 +37,44 @@
         <div class="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-md shadow-lg overflow-hidden mx-5">
             <!-- Title and button container with justify-between -->
             <div class="flex justify-between items-center mb-6 mx-8 my-2">
-                <h1 class="text-2xl font-semibold text-gray-800 dark:text-gray-200 mx-2">Items</h1>
-                <a href="{{ route('item.create') }}" class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-lg inline-block transition duration-200 ease-in-out flex items-center">
-                    <i class="fas fa-plus mr-2"></i> {{ __('Tambah Item') }}
+                <h1 class="text-2xl font-semibold text-gray-800 dark:text-gray-200 mx-2">Core Branch</h1>
+                <a href="{{ route('CoreBranch.create') }}" class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-lg inline-block transition duration-200 ease-in-out flex items-center">
+                    <i class="fas fa-plus mr-2"></i> {{ __('Add Branch') }}
                 </a>
             </div>
 
             <!-- Table Header -->
             <div class="overflow-x-auto mx-2">
-                <table id="units-table" class="min-w-full bg-white dark:bg-gray-800 table-auto">
+                <table id="core-branch-table" class="min-w-full bg-white dark:bg-gray-800 table-auto">
                     <thead class="bg-gray-100 dark:bg-gray-700">
                         <tr>
                             <th class="px-6 py-4 text-left text-sm font-medium text-gray-600 dark:text-gray-200"></th>
                             <th class="px-6 py-4 text-left text-sm font-medium text-gray-600 dark:text-gray-200">No</th>
-                            <th class="px-6 py-4 text-left text-sm font-medium text-gray-600 dark:text-gray-200">Unit Code</th>
+                            <th class="px-6 py-4 text-left text-sm font-medium text-gray-600 dark:text-gray-200">Code</th>
                             <th class="px-6 py-4 text-left text-sm font-medium text-gray-600 dark:text-gray-200">Name</th>
-                            <th class="px-6 py-4 text-left text-sm font-medium text-gray-600 dark:text-gray-200">Category</th>
-                            <th class="px-6 py-4 text-left text-sm font-medium text-gray-600 dark:text-gray-200">Unit name</th>
-                            <th class="px-6 py-4 text-left text-sm font-medium text-gray-600 dark:text-gray-200">Stock</th>
-                            <th class="px-6 py-4 text-left text-sm font-medium text-gray-600 dark:text-gray-200">Biaya Satuan</th>
-                            <th class="px-6 py-4 text-left text-sm font-medium text-gray-600 dark:text-gray-200">Harga Satuan</th>
+                            <th class="px-6 py-4 text-left text-sm font-medium text-gray-600 dark:text-gray-200">City</th>
+                            <th class="px-6 py-4 text-left text-sm font-medium text-gray-600 dark:text-gray-200">Manager</th>
+                            <th class="px-6 py-4 text-left text-sm font-medium text-gray-600 dark:text-gray-200">Email</th>
                             <th class="px-6 py-4 text-left text-sm font-medium text-gray-600 dark:text-gray-200">Actions</th>
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach($items as $item)
+                        @foreach($branches as $branch)
                             <tr class="hover:bg-gray-50 dark:hover:bg-gray-700">
                                 <td class="px-6 py-4 text-sm"></td>
-                                <td class="px-6 py-4 text-sm text-gray-800 dark:text-gray-200">{{ $item->item_id }}</td>
-                                <td class="px-6 py-4 text-sm text-gray-800 dark:text-gray-200">{{ $item->unit ? $item->unit->code : 'No code' }}</td>
-                                <td class="px-6 py-4 text-sm text-gray-800 dark:text-gray-200">{{ $item->item_name }}</td>
-                                <td class="px-6 py-4 text-sm text-gray-800 dark:text-gray-200">{{ $item->category ? $item->category->category_name : 'No Category' }}</td>
-                                <td class="px-6 py-4 text-sm text-gray-800 dark:text-gray-200">{{ $item->unit ? $item->unit->name : 'No name' }}</td>
-                                <td class="px-6 py-4 text-sm text-gray-800 dark:text-gray-200">{{ $item->stock }}</td>
-                                <td class="px-6 py-4 text-sm text-gray-800 dark:text-gray-200">{{ $item->unit_cost  }}</td>
-                                <td class="px-6 py-4 text-sm text-gray-800 dark:text-gray-200">{{ $item->unit_price }}</td>
+                                <td class="px-6 py-4 text-sm text-gray-800 dark:text-gray-200">{{ $loop->iteration }}</td>
+                                <td class="px-6 py-4 text-sm text-gray-800 dark:text-gray-200">{{ $branch->branch_code }}</td>
+                                <td class="px-6 py-4 text-sm text-gray-800 dark:text-gray-200">{{ $branch->branch_name }}</td>
+                                <td class="px-6 py-4 text-sm text-gray-800 dark:text-gray-200">{{ $branch->branch_city }}</td>
+                                <td class="px-6 py-4 text-sm text-gray-800 dark:text-gray-200">{{ $branch->branch_manager }}</td>
+                                <td class="px-6 py-4 text-sm text-gray-800 dark:text-gray-200">{{ $branch->branch_email }}</td>
                                 <td class="px-6 py-4 text-sm flex space-x-2">
-                                    <a href="{{ route('item.edit', $item->item_id) }}"
+                                    <a href="{{ route('CoreBranch.edit', $branch->branch_id) }}"
                                        class="bg-blue-100 dark:bg-blue-900 text-blue-700 dark:text-blue-300 px-3 py-1 rounded-lg hover:bg-blue-200 dark:hover:bg-blue-800 transition duration-200 ease-in-out flex items-center">
                                         <i class="fas fa-edit mr-1"></i> Edit
                                     </a>
 
-                                    <form action="{{ route('item.destroy', $item->item_id) }}" method="POST" class="delete-form inline">
+                                    <form action="{{ route('CoreBranch.destroy', $branch->branch_id) }}" method="POST" class="delete-form inline">
                                         @csrf
                                         @method('DELETE')
                                         <button type="button"
@@ -96,25 +92,26 @@
 
             <!-- Pagination -->
             <div class="mt-6 px-4 py-2">
-                {{ $items->links() }}
+                {{ $branches->links() }}
             </div>
         </div>
     </div>
 
     <script>
         $(document).ready(function() {
-            $('#units-table').DataTable({
-                paging: true,
-                searching: true,
-                info: true,
-                order: [],
-                lengthChange: true,
-                pageLength: 5,
+
+            $('#core-branch-table').DataTable({
+                paging: true, // Enable pagination
+                searching: true, // Enable search functionality
+                info: true, // Enable info display of DataTable
+                order: [], // Optional: Remove default sorting
+                lengthChange: true, // Enable length dropdown
+                pageLength: 5, // Default number of rows
                 language: {
-                    search: "_INPUT_",
+                    search: "_INPUT_", // Use a custom placeholder for search box
                     searchPlaceholder: "Search ...",
                     paginate: {
-                        next: '<i class="fas fa-chevron-right"></i>',
+                        next: '<i class="fas fa-chevron-right"></i>', // Custom pagination icon
                         previous: '<i class="fas fa-chevron-left"></i>'
                     },
                     lengthMenu: "Show _MENU_ entries",
@@ -125,6 +122,7 @@
                     $('table tbody tr').addClass('hover:bg-gray-100 dark:hover:bg-gray-700 transition duration-200');
                 }
             });
+
 
             setTimeout(function() {
                 $('#success-message').fadeOut();

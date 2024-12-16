@@ -52,7 +52,7 @@ return new class extends Migration
                [ 'id_menu' => 76, 'id' => 'feed',               'type' => 'file','text' => 'Pakan','parent_id' => "8",'menu_level' => "2",],
                [ 'id_menu' => 77, 'id' => 'hewan',               'type' => 'file','text' => 'Hewan','parent_id' => "8",'menu_level' => "2",],
                [ 'id_menu' => 87, 'id' => 'bank-account',        'type' => 'file','text' => 'Account Bank','parent_id' => "8",'menu_level' => "2",],
-               [ 'id_menu' => 88, 'id' => 'branch',              'type' => 'file','text' => 'kode cabang','parent_id' => "8",'menu_level' => "2",],
+               [ 'id_menu' => 88, 'id' => 'CoreBranch',              'type' => 'file','text' => 'kode cabang','parent_id' => "8",'menu_level' => "2",],
                [ 'id_menu' => 89, 'id' => 'office',               'type' => 'file','text' => 'kode BO','parent_id' => "8",'menu_level' => "2",],
                [ 'id_menu' => 9, 'id' => '#',                     'type' => 'folder', 'text' => 'Laporan','parent_id' => "#",'menu_level' => "1",],
                [ 'id_menu' => 91, 'id' => 'invoice-report',      'type' => 'file', 'text' => 'Laporan Invoice','parent_id' => "8",'menu_level' => "2",],

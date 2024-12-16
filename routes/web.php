@@ -10,6 +10,7 @@ use App\Http\Controllers\UnitController;
 use App\Http\Controllers\HewanController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\CoreBranchController;
 
 
 
@@ -85,6 +86,14 @@ Route::prefix('obat')->name('obat.')->group(function () {
     Route::get('{obat}/edit', [ObatController::class, 'edit'])->name('edit');  // Menampilkan form edit unit
     Route::put('{obat}', [ObatController::class, 'update'])->name('update');  // Proses update unit
     Route::delete('{obat}', [ObatController::class, 'destroy'])->name('destroy');  // Proses delete unit
+});
+Route::prefix('CoreBranch')->name('CoreBranch.')->group(function () {
+    Route::get('/', [CoreBranchController::class, 'index'])->name('index');  // Menampilkan list unit
+    Route::get('/create', [CoreBranchController::class, 'create'])->name('create');  // Menampilkan form create unit
+    Route::post('/', [CoreBranchController::class, 'store'])->name('store');  // Proses create unit
+    Route::get('{CoreBranch}/edit', [CoreBranchController::class, 'edit'])->name('edit');  // Menampilkan form edit unit
+    Route::put('{CoreBranch}', [CoreBranchController::class, 'update'])->name('update');  // Proses update unit
+    Route::delete('{CoreBranch}', [CoreBranchController::class, 'destroy'])->name('destroy');  // Proses delete unit
 });
 
 require __DIR__.'/auth.php';
