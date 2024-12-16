@@ -75,23 +75,14 @@
                         <tr class="hover:bg-gray-50 dark:hover:bg-gray-700">
                             <td class="px-6 py-4 text-sm"></td>
                             <td class="px-6 py-4 text-sm text-gray-800 dark:text-gray-200">{{ $loop->iteration }}</td>
-                            <td class="px-6 py-4 text-sm text-gray-800 dark:text-gray-200">{{ $animal->animal_Name }}
-                            </td>
+                            <td class="px-6 py-4 text-sm text-gray-800 dark:text-gray-200">{{ $animal->animal_Name }}</td>
                             <td class="px-6 py-4 text-sm text-gray-800 dark:text-gray-200">{{ $animal->species }}</td>
-                            <td class="px-6 py-4 text-sm text-gray-800 dark:text-gray-200">
-                                {{ ucfirst($animal->gender) }}</td>
-                            <td class="px-6 py-4 text-sm text-gray-800 dark:text-gray-200">
-                                {{ $animal->date_of_birth ? $animal->date_of_birth->format('d M Y') : 'No date' }}
-                            </td>
-                            <td class="px-6 py-4 text-sm text-gray-800 dark:text-gray-200">
-                                {{ $animal->created_at ? $animal->created_at->format('d M Y') : 'Not available' }}
-                            </td>
-                            <td class="px-6 py-4 text-sm text-gray-800 dark:text-gray-200">
-                                {{ $animal->updated_at ? $animal->updated_at->format('d M Y') : 'Not available' }}
-                            </td>
-
+                            <td class="px-6 py-4 text-sm text-gray-800 dark:text-gray-200">{{ ucfirst($animal->gender) }}</td>
+                            <td class="px-6 py-4 text-sm text-gray-800 dark:text-gray-200">{{ $animal->date_of_birth ? $animal->date_of_birth->format('d M Y') : 'No date' }}</td>
+                            <td class="px-6 py-4 text-sm text-gray-800 dark:text-gray-200">{{ $animal->created_at ? $animal->created_at->format('d M Y') : 'Not available' }}</td>
+                            <td class="px-6 py-4 text-sm text-gray-800 dark:text-gray-200">{{ $animal->updated_at ? $animal->updated_at->format('d M Y') : 'Not available' }}</td>
                             <td class="px-6 py-4 text-sm flex space-x-2">
-                                <a href="{{ route('hewan.edit', $animal->animal_ID) }}"
+                                <a href="{{ route('hewan.edit', $animal->animal_ID) }}" 
                                     class="bg-blue-100 dark:bg-blue-900 text-blue-700 dark:text-blue-300 px-3 py-1 rounded-lg hover:bg-blue-200 dark:hover:bg-blue-800 transition duration-200 ease-in-out flex items-center">
                                     <i class="fas fa-edit mr-1"></i> Edit
                                 </a>
@@ -107,11 +98,9 @@
                             </td>
                         </tr>
                         @endforeach
-
                     </tbody>
                 </table>
             </div>
-
             <!-- Pagination -->
             <div class="mt-6 px-4 py-2">
                 {{ $hewan->links() }}
@@ -156,6 +145,5 @@
                 button.closest('form').submit();
             }
         }
-
     </script>
 </x-app-layout>
