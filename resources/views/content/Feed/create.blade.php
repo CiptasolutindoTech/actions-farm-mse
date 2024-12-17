@@ -57,21 +57,24 @@
                 @csrf
 
                 <!-- Item_ID (Foreign Key) -->
-                <div>
-                    <label for="item_id" class="block text-sm font-medium text-gray-700 dark:text-gray-300">Item</label>
-                    <select id="item_id" name="item_id" required>
+                <div class="mb-4">
+                    <label for="item_id" class="block text-sm font-medium text-gray-700 dark:text-gray-300">
+                        {{ __('Item') }}
+                    </label>
+                    <select name="item_id" id="item_id"
+                        class="mt-1 block w-full rounded-md shadow-sm bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-200"
+                        required>
                         <option value="">Select Item</option>
-                        @foreach($items as $item)
+                        @foreach ($items as $item)
                         <option value="{{ $item->item_id }}" {{ old('item_id') == $item->item_id ? 'selected' : '' }}>
                             {{ $item->item_name }}
                         </option>
                         @endforeach
                     </select>
                     @error('item_id')
-                    <span class="text-red-600 text-sm">{{ $message }}</span>
+                    <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
                     @enderror
                 </div>
-
 
                 <!-- Feed_Type -->
                 <div>
