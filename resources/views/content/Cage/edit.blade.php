@@ -13,8 +13,8 @@
                     <span class="mx-0">-</span>
                 </li>
                 <li>
-                    <a href="{{ route('category.index') }}" class="text-blue-600 font-semibold hover:text-blue-700">
-                       Edit Category
+                    <a href="{{ route('cage.index') }}" class="text-blue-600 font-semibold hover:text-blue-700">
+                       Edit cage
                     </a>
                 </li>
             </ol>
@@ -24,15 +24,49 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900 dark:text-gray-100">
-                    <form action="{{ route('category.update', $categoris) }}" method="POST">
+                    <form action="{{ route('cage.update', $cages) }}" method="POST">
                         @csrf
                         @method('PUT')
                         <div class="mb-4">
-                            <label for="category_name" class="block text-sm font-medium text-gray-700 dark:text-gray-300">
-                                {{ __('Category Name') }}
+                            <label for="cage_name" class="block text-sm font-medium text-gray-700 dark:text-gray-300">
+                                {{ __('Nama Kandang') }}
                             </label>
-                            <input type="text" name="category_name" id="category_name" class="mt-1 block w-full rounded-md shadow-sm bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-200" value="{{ old('category_name', $categoris->category_name) }}">
-                            @error('category_name')
+                            <input type="text" name="cage_name" id="cage_name" class="mt-1 block w-full rounded-md shadow-sm bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-200" value="{{ old('cage_name', $cages->cage_name) }}">
+                            @error('cage_name')
+                                <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
+                            @enderror
+                        </div>
+                        <div class="mb-4">
+                            <label for="location" class="block text-sm font-medium text-gray-700 dark:text-gray-300">
+                                {{ __('Lokasi') }}
+                            </label>
+                            <input type="text" name="location" id="location" class="mt-1 block w-full rounded-md shadow-sm bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-200" value="{{ old('location', $cages->location) }}">
+                            @error('location')
+                                <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
+                            @enderror
+                        </div>
+                        <div class="mb-4">
+                            <label for="capacity" class="block text-sm font-medium text-gray-700 dark:text-gray-300">
+                                {{ __('Kapasitas') }}
+                            </label>
+                            <input type="number" name="capacity" id="capacity" class="mt-1 block w-full rounded-md shadow-sm bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-200" value="{{ old('capacity', $cages->capacity) }}">
+                            @error('capacity')
+                                <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
+                            @enderror
+                        </div>
+                        <div class="mb-4">
+                            <label for="animal_id" class="block text-sm font-medium text-gray-700 dark:text-gray-300">
+                                {{ __('Nama Hewan') }}
+                            </label>
+                            <select id="animal_id" name="animal_id" required>
+                                <option value="">Select Item</option>
+                                @foreach($animals as $animal)
+                                <option value="{{ $animal->animal_ID }}" {{ old('animal_id', $cages->animal_id) == $animal->animal_ID ? 'selected' : '' }}>
+                                    {{ $animal->animal_Name }}
+                                </option>
+                                @endforeach
+                            </select>
+                            @error('animal_id')
                                 <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
                             @enderror
                         </div>
@@ -40,7 +74,7 @@
                             <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded mr-2">
                                 {{ __('Update') }}
                             </button>
-                            <a href="{{ route('unit.index') }}" class="bg-gray-500 text-white px-4 py-2 rounded">
+                            <a href="{{ route('cage.index') }}" class="bg-gray-500 text-white px-4 py-2 rounded">
                                 {{ __('Cancel') }}
                             </a>
                         </div>

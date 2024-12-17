@@ -69,7 +69,8 @@ class CageController extends Controller
     }
     public function edit(Cage $cages)
     {
-        return view('content.Cage.edit', compact('cages'));
+        $animals = Hewan::all();
+        return view('content.Cage.edit', compact('cages', 'animals'));
     }
 
     /**
@@ -87,7 +88,10 @@ class CageController extends Controller
         try {
             // Validate the request data
             $request->validate([
-                'Cage_name' => 'required',
+                'cage_name' => 'required|string|max:255',
+                'location' => 'required|string|max:255',
+                'capacity' => 'required|integer|min:0',
+                'animal_id' => 'required|exists:animals,animal_id',
             ]);
 
             // Update the Cage
@@ -106,7 +110,7 @@ class CageController extends Controller
             session()->flash('error', 'Failed to update Cage. Please try again.');
         }
 
-        return redirect()->route('Cage.index');
+        return redirect()->route('cage.index');
     }
 
     /**
@@ -137,6 +141,6 @@ class CageController extends Controller
             session()->flash('error', 'Failed to delete Cage. Please try again.');
         }
 
-        return redirect()->route('Cage.index');
+        return redirect()->route('cage.index');
     }
 }
