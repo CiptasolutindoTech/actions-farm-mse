@@ -51,6 +51,7 @@ return new class extends Migration
                [ 'id_menu' => 81, 'id' => 'preference-company', 'type' => 'file','text' => 'Perusahaan','parent_id' => "8",'menu_level' => "2",],
                [ 'id_menu' => 83, 'id' => 'acct-account-setting','type' => 'file','text' => 'Pengaturan Akun','parent_id' => "8",'menu_level' => "2",],
                [ 'id_menu' => 84, 'id' => 'user','type' => 'file','text' => 'Pengaturan User','parent_id' => "8",'menu_level' => "2",],
+               [ 'id_menu' => 844, 'id' => 'menu','type' => 'file','text' => 'Pengaturan Menu','parent_id' => "8",'menu_level' => "2",],
                [ 'id_menu' => 85, 'id' => 'user-group','type' => 'file','text' => 'Pengaturan User Group','parent_id' => "8",'menu_level' => "2",],
                [ 'id_menu' => 86, 'id' => 'asset',               'type' => 'file','text' => 'Asset','parent_id' => "8",'menu_level' => "2",],
                [ 'id_menu' => 87, 'id' => 'bank-account',        'type' => 'file','text' => 'Account Bank','parent_id' => "8",'menu_level' => "2",],
