@@ -66,7 +66,7 @@
                             <td class="px-6 py-4 text-sm text-gray-800 dark:text-gray-200">{{ $warehouse->warehouse_code }}</td>
                             <td class="px-6 py-4 text-sm text-gray-800 dark:text-gray-200">{{ $warehouse->warehouse_name }}</td>
                             <td class="px-6 py-4 text-sm text-gray-800 dark:text-gray-200">{{ $warehouse->warehouse_type ?? 'N/A' }}</td>
-                            <td class="px-6 py-4 text-sm text-gray-800 dark:text-gray-200">{{ $warehouse->warehouse_location_id ?? 'N/A' }}</td>
+                            <td class="px-6 py-4 text-sm text-gray-800 dark:text-gray-200">{{ $warehouse->warehouselocation ? $warehouse->warehouselocation->warehouse_location_code : 'No code' }}</td>
                             <td class="px-6 py-4 text-sm text-gray-800 dark:text-gray-200">{{ $warehouse->warehouse_address ?? 'N/A' }}</td>
                             <td class="px-6 py-4 text-sm text-gray-800 dark:text-gray-200">{{ $warehouse->warehouse_phone ?? 'N/A' }}</td>
                             <td class="px-6 py-4 text-sm text-gray-800 dark:text-gray-200">{{ $warehouse->warehouse_remark ?? 'N/A' }}</td> <!-- New column data -->
@@ -76,13 +76,14 @@
                                     <i class="fas fa-edit mr-1"></i> Edit
                                 </a>
                                 <form action="{{ route('Warehouse.destroy', $warehouse->warehouse_id) }}" method="POST" class="delete-form inline">
-                                    @csrf
-                                    @method('DELETE')
-                                    <button type="button" onclick="confirmDelete(this)" 
-                                        class="bg-red-100 dark:bg-red-900 text-red-700 dark:text-red-300 px-3 py-1 rounded-lg hover:bg-red-200 dark:hover:bg-red-800 transition duration-200 ease-in-out flex items-center">
-                                        <i class="fas fa-trash mr-1"></i> Delete
-                                    </button>
-                                </form>
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="button"
+                                                onclick="confirmDelete(this)"
+                                                class="bg-red-100 dark:bg-red-900 text-red-700 dark:text-red-300 px-3 py-1 rounded-lg hover:bg-red-200 dark:hover:bg-red-800 transition duration-200 ease-in-out flex items-center">
+                                            <i class="fas fa-trash-alt mr-1"></i> Delete
+                                        </button>
+                                    </form>
                             </td>
                         </tr>
                     @endforeach

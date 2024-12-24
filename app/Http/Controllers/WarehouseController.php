@@ -2,37 +2,39 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\CoreCity;
+use App\Models\CoreProvince;
 use App\Models\Warehouse;
-use Illuminate\Http\Request;
 use App\Models\WarehouseLocation;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
 class WarehouseController extends Controller
 {
     /**
-     * Display a listing of the warehouses with pagination.
+     * Menampilkan data warehouse dengan pagination.
      *
      * @return \Illuminate\Http\Response
      */
     public function index()
     {
-        $warehouses = Warehouse::paginate(10);
+        $warehouses = Warehouse::with(['WarehouseLocation'])->paginate(10); // Mengambil data warehouse dengan relasi warehouseLocation
         return view('content.Warehouse.index', compact('warehouses'));
     }
 
     /**
-     * Show the form for creating a new warehouse.
+     * Menampilkan form untuk membuat warehouse baru.
      *
      * @return \Illuminate\Http\Response
      */
     public function create()
     {
-        $locations = WarehouseLocation::all(); // Ambil semua lokasi dari tabel
-        return view('content.Warehouse.create', compact('locations'));
+        $warehouselocation = WarehouseLocation::all(); // Mengambil data lokasi warehouse
+        return view('content.Warehouse.create', compact('warehouselocation'));
     }
 
     /**
-     * Store a newly created warehouse in storage.
+     * Menyimpan data warehouse baru.
      *
      * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\RedirectResponse
@@ -42,14 +44,17 @@ class WarehouseController extends Controller
         DB::beginTransaction();
 
         try {
-            $request->validate([
-                'warehouse_location_id' => 'required|exists:warehouse_locations,id',
+            $validatedData = $request->validate([
+                'warehouse_location_id' => 'required|exists:warehouse_location,warehouse_location_id',
                 'warehouse_code' => 'required|unique:warehouses',
                 'warehouse_name' => 'required',
                 'warehouse_address' => 'required',
-            ]);
+                'warehouse_type' => 'required',
+                'warehouse_phone' => 'required',
+                'warehouse_remark' => 'required',
+            ]);            
 
-            Warehouse::create($request->all());
+            Warehouse::create($validatedData);
 
             DB::commit();
             session()->flash('success', 'Warehouse created successfully.');
@@ -62,65 +67,79 @@ class WarehouseController extends Controller
     }
 
     /**
-     * Show the form for editing the specified warehouse.
+     * Menampilkan form untuk mengedit warehouse.
      *
      * @param \App\Models\Warehouse $warehouse
      * @return \Illuminate\Http\Response
      */
-    public function edit(Warehouse $warehouse)
+    public function edit(Warehouse $Warehouse)
     {
-        return view('content.Warehouse.edit', compact('warehouse'));
+        $warehouselocation = WarehouseLocation::all(); // ambil lokasi warehouse
+        return view('content.Warehouse.edit', compact('Warehouse', 'warehouselocation'));
     }
+    
 
     /**
-     * Update the specified warehouse in storage.
+     * Mengupdate data warehouse.
      *
      * @param \Illuminate\Http\Request $request
      * @param \App\Models\Warehouse $warehouse
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function update(Request $request, Warehouse $warehouse)
+    public function update(Request $request, Warehouse $Warehouse)
     {
         DB::beginTransaction();
-
+    
         try {
-            $request->validate([
-                'warehouse_location_id' => 'required|exists:warehouse_locations,id',
-                'warehouse_code' => 'required|unique:warehouses,warehouse_code,' . $warehouse->warehouse_id . ',warehouse_id',
+            $validatedData = $request->validate([
+                'warehouse_location_id' => 'required|exists:warehouse_location,warehouse_location_id',
+                'warehouse_code' => 'required|unique:warehouses,warehouse_code,' . $Warehouse->warehouse_id . ',warehouse_id',
                 'warehouse_name' => 'required',
                 'warehouse_address' => 'required',
+                'warehouse_type' => 'required',
+                'warehouse_phone' => 'required',
+                'warehouse_remark' => 'required',
             ]);
-
-            $warehouse->update($request->all());
-
+    
+            $Warehouse->update($validatedData);
+    
             DB::commit();
             session()->flash('success', 'Warehouse updated successfully.');
         } catch (\Exception $e) {
             DB::rollBack();
             session()->flash('error', 'Failed to update warehouse. Please try again.');
         }
-
+    
         return redirect()->route('Warehouse.index');
-    }
+    }    
 
     /**
-     * Remove the specified warehouse from storage.
+     * Menghapus warehouse.
      *
      * @param \App\Models\Warehouse $warehouse
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function destroy(Warehouse $warehouse)
+
+    public function destroy(Warehouse $Warehouse)
     {
+        // Start a database transaction
         DB::beginTransaction();
 
         try {
-            $warehouse->delete();
+            // Delete the unit
+            $Warehouse->delete();
 
+            // Commit the transaction
             DB::commit();
+
+            // Flash success message to session
             session()->flash('success', 'Warehouse deleted successfully.');
         } catch (\Exception $e) {
+            // Rollback the transaction if something goes wrong
             DB::rollBack();
-            session()->flash('error', 'Failed to delete warehouse. Please try again.');
+
+            // Flash error message to session
+            session()->flash('error', 'Failed to delete Warehouse. Please try again.');
         }
 
         return redirect()->route('Warehouse.index');

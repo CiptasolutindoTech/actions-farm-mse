@@ -38,4 +38,9 @@ class WarehouseLocation extends Model
     {
         return $this->belongsTo(CoreCity::class, 'city_id','city_id');
     }
+
+    public function warehouses()
+    {
+        return $this->hasMany(Warehouse::class, 'warehouse_location_id', 'warehouse_location_id');
+    }
 }

@@ -52,4 +52,10 @@ class Warehouse extends Model
         'updated_at' => 'datetime',
         'deleted_at' => 'datetime',
     ];
+
+    // Relasi ke WarehouseLocation
+    public function warehouselocation()
+    {
+        return $this->belongsTo(WarehouseLocation::class, 'warehouse_location_id', 'warehouse_location_id');
+    }
 }
