@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Warehouse;
 use Illuminate\Http\Request;
+use App\Models\WarehouseLocation;
 use Illuminate\Support\Facades\DB;
 
 class WarehouseController extends Controller
@@ -26,7 +27,8 @@ class WarehouseController extends Controller
      */
     public function create()
     {
-        return view('content.Warehouse.create');
+        $locations = WarehouseLocation::all(); // Ambil semua lokasi dari tabel
+        return view('content.Warehouse.create', compact('locations'));
     }
 
     /**
@@ -41,6 +43,7 @@ class WarehouseController extends Controller
 
         try {
             $request->validate([
+                'warehouse_location_id' => 'required|exists:warehouse_locations,id',
                 'warehouse_code' => 'required|unique:warehouses',
                 'warehouse_name' => 'required',
                 'warehouse_address' => 'required',
@@ -82,6 +85,7 @@ class WarehouseController extends Controller
 
         try {
             $request->validate([
+                'warehouse_location_id' => 'required|exists:warehouse_locations,id',
                 'warehouse_code' => 'required|unique:warehouses,warehouse_code,' . $warehouse->warehouse_id . ',warehouse_id',
                 'warehouse_name' => 'required',
                 'warehouse_address' => 'required',

@@ -71,7 +71,14 @@
                                 <label for="warehouse_location_id" class="block text-sm font-medium text-gray-700 dark:text-gray-300">
                                     Lokasi
                                 </label>
-                                <input type="text" name="warehouse_location_id" id="warehouse_location_id" class="mt-1 block w-full rounded-md shadow-sm bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-200" value="{{ old('warehouse_location_id') }}">
+                                <select name="warehouse_location_id" id="warehouse_location_id" class="mt-1 block w-full rounded-md shadow-sm bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-200">
+                                    <option value="">Pilih Lokasi</option>
+                                    @foreach($locations as $location)
+                                        <option value="{{ $location->id }}" {{ old('warehouse_location_id') == $location->id ? 'selected' : '' }}>
+                                            {{ $location->name }}
+                                        </option>
+                                    @endforeach
+                                </select>
                                 @error('warehouse_location_id')
                                     <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
                                 @enderror
