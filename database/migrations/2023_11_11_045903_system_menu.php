@@ -58,6 +58,7 @@ return new class extends Migration
                [ 'id_menu' => 89, 'id' => 'office',               'type' => 'file','text' => 'kode BO','parent_id' => "8",'menu_level' => "2",],
                [ 'id_menu' => 9, 'id' => '#',                     'type' => 'folder', 'text' => 'Laporan','parent_id' => "#",'menu_level' => "1",],
                [ 'id_menu' => 91, 'id' => 'invoice-report',      'type' => 'file', 'text' => 'Laporan Invoice','parent_id' => "8",'menu_level' => "2",],
+               [ 'id_menu' => 95, 'id' => 'Warehouse',            'type' => 'file', 'text' => 'Mengelola Gudang','parent_id' => "8",'menu_level' => "2",],
                [ 'id_menu' => 911, 'id' => 'invoice-report',      'type' => 'file', 'text' => 'Tagihan Invoice','parent_id' => "91",'menu_level' => "2",],
             ]);
         }
