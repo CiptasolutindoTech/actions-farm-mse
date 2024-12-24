@@ -10,6 +10,7 @@ use App\Http\Controllers\ObatController;
 use App\Http\Controllers\UnitController;
 use App\Http\Controllers\HewanController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\WarehouseController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\CoreBranchController;
 use App\Http\Controllers\WarehouseLocationController;
@@ -103,6 +104,15 @@ Route::prefix('CoreBranch')->name('CoreBranch.')->group(function () {
     Route::put('{CoreBranch}', [CoreBranchController::class, 'update'])->name('update');  // Proses update unit
     Route::delete('{CoreBranch}', [CoreBranchController::class, 'destroy'])->name('destroy');  // Proses delete unit
 });
+Route::prefix('Warehouse')->name('Warehouse.')->group(function () {
+    Route::get('/', [WarehouseController::class, 'index'])->name('index');  // Menampilkan list unit
+    Route::get('/create', [WarehouseController::class, 'create'])->name('create');  // Menampilkan form create unit
+    Route::post('/', [WarehouseController::class, 'store'])->name('store');  // Proses create unit
+    Route::get('{Warehouse}/edit', [WarehouseController::class, 'edit'])->name('edit');  // Menampilkan form edit unit
+    Route::put('{Warehouse}', [WarehouseController::class, 'update'])->name('update');  // Proses update unit
+    Route::delete('{Warehouse}', [WarehouseController::class, 'destroy'])->name('destroy');  // Proses delete unit
+});
+
 Route::prefix('WarehouseLocation')->name('WarehouseLocation.')->group(function () {
     Route::get('/', [WarehouseLocationController::class, 'index'])->name('index');  // Menampilkan list unit
     Route::get('/create', [WarehouseLocationController::class, 'create'])->name('create');  // Menampilkan form create unit
