@@ -13,7 +13,7 @@ return new class extends Migration
     {
         if (!Schema::hasTable('items')) {
             Schema::create('items', function (Blueprint $table) {
-                $table->id('item_id');
+                $table->id('item_id')->index('item_id');
                 $table->string('item_name');
                 $table->unsignedBigInteger('category_id');
                 $table->unsignedBigInteger('unit_id');
@@ -23,7 +23,7 @@ return new class extends Migration
 
                 // Foreign keys
                 $table->foreign('category_id')->references('category_id')->on('categoris')->onDelete('cascade')->onUpdate('cascade');
-                $table->foreign('unit_id')->references('id')->on('units')->onDelete('cascade')->onUpdate('cascade');
+                $table->foreign('unit_id')->references('unit_id')->on('units')->onDelete('cascade')->onUpdate('cascade');
 
                 $table->smallInteger('data_state')->default(0)->nullable();
                 $table->unsignedBigInteger('created_id')->nullable();

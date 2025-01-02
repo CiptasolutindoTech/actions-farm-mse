@@ -21,4 +21,8 @@ class Category extends Model
     {
         return $this->hasMany(Item::class, 'category_id', 'category_id');
     }
+    public function stock()
+    {
+        return $this->hasMany(Stock::class, 'category_id', 'category_id');
+    }
 }

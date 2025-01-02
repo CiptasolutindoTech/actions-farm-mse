@@ -51,7 +51,7 @@
                                 </label>
                                 <select name="category_id" id="category_id" class="mt-1 block w-full rounded-md shadow-sm bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-200">
                                     <option value="">Select Category</option>
-                                    @foreach ($categories as $category)
+                                    @foreach ($categoris as $category)
                                         <option value="{{ $category->category_id }}" {{ old('category_id') == $category->category_id ? 'selected' : '' }}>
                                             {{ $category->category_name }}
                                         </option>
@@ -65,13 +65,29 @@
                             <!-- Unit -->
                             <div class="mb-4">
                                 <label for="unit_id" class="block text-sm font-medium text-gray-700 dark:text-gray-300">
-                                    {{ __('Unit') }}
+                                    {{ __('Unit Nama') }}
                                 </label>
                                 <select name="unit_id" id="unit_id" class="mt-1 block w-full rounded-md shadow-sm bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-200">
                                     <option value="">Select Unit</option>
                                     @foreach ($units as $unit)
-                                        <option value="{{ $unit->id }}" {{ old('unit_id') == $unit->id ? 'selected' : '' }}>
+                                        <option value="{{ $unit->unit_id }}" {{ old('unit_id') == $unit->unit_id ? 'selected' : '' }}>
                                             {{ $unit->name }}
+                                        </option>
+                                    @endforeach
+                                </select>
+                                @error('unit_id')
+                                    <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
+                                @enderror
+                            </div>
+                            <div class="mb-4">
+                                <label for="unit_id" class="block text-sm font-medium text-gray-700 dark:text-gray-300">
+                                    {{ __('Unit Code') }}
+                                </label>
+                                <select name="unit_id" id="unit_id" class="mt-1 block w-full rounded-md shadow-sm bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-200">
+                                    <option value="">Select Unit</option>
+                                    @foreach ($units as $unit)
+                                        <option value="{{ $unit->unit_id }}" {{ old('unit_id') == $unit->unit_id ? 'selected' : '' }}>
+                                            {{ $unit->code }}
                                         </option>
                                     @endforeach
                                 </select>

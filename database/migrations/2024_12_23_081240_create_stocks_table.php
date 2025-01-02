@@ -17,9 +17,13 @@ return new class extends Migration
             $table->unsignedBigInteger('goods_received_note_item_id')->default()->nullable();
             $table->date('item_stock_date')->nullable();
             $table->unsignedBigInteger('warehouse_id')->default(0);
-            $table->unsignedBigInteger('item_category_id')->default(0);
+            $table->foreign('warehouse_id')->references('warehouse_id')->on('warehouses')->onDelete('cascade')->onUpdate('cascade');
+            $table->unsignedBigInteger('category_id')->default(0);
+            $table->foreign('category_id')->references('category_id')->on('categoris')->onDelete('cascade')->onUpdate('cascade');
             $table->unsignedBigInteger('item_id')->default(0);
-            $table->unsignedBigInteger('item_unit_id')->default(5);
+            $table->foreign('item_id')->references('item_id')->on('items')->onDelete('cascade')->onUpdate('cascade');
+            $table->unsignedBigInteger('unit_id')->default(5);
+            $table->foreign('unit_id')->references('unit_id')->on('units')->onDelete('cascade')->onUpdate('cascade');
             $table->decimal('item_total',10,0)->default(0);
             $table->decimal('item_unit_cost',20,0)->default(0);
             $table->decimal('item_unit_price',20,0)->default(0);
