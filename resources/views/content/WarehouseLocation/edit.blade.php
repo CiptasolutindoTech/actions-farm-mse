@@ -40,44 +40,20 @@
                                     <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
                                 @enderror
                             </div>
-
-                            <!-- Province -->
                             <div class="mb-4">
-                                <label for="province_id" class="block text-sm font-medium text-gray-700 dark:text-gray-300">
-                                    {{ __('Province') }}
+                                <label for="description" class="block text-sm font-medium text-gray-700 dark:text-gray-300">
+                                    {{ __('description') }}
                                 </label>
-                                <select name="province_id" id="province_id" 
-                                    class="mt-1 block w-full rounded-md shadow-sm bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-200">
-                                    <option value="">{{ __('Select Province') }}</option>
-                                    @foreach ($provinces as $province)
-                                        <option value="{{ $province->province_id }}" {{ old('province_id', $WarehouseLocation->province_id) == $province->province_id ? 'selected' : '' }}>
-                                            {{ $province->province_name }}
-                                        </option>
-                                    @endforeach
-                                </select>
-                                @error('province_id')
+                                <input type="text" name="description" id="description" 
+                                    class="mt-1 block w-full rounded-md shadow-sm bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-200" 
+                                    value="{{ old('description', $WarehouseLocation->description) }}">
+                                @error('description')
                                     <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
                                 @enderror
                             </div>
 
-                            <!-- City -->
-                            <div class="mb-4">
-                                <label for="city_id" class="block text-sm font-medium text-gray-700 dark:text-gray-300">
-                                    {{ __('City') }}
-                                </label>
-                                <select name="city_id" id="city_id" 
-                                    class="mt-1 block w-full rounded-md shadow-sm bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-200">
-                                    <option value="">{{ __('Select City') }}</option>
-                                    @foreach ($cities as $city)
-                                        <option value="{{ $city->city_id }}" {{ old('city_id', $WarehouseLocation->city_id) == $city->city_id ? 'selected' : '' }}>
-                                            {{ $city->city_name }}
-                                        </option>
-                                    @endforeach
-                                </select>
-                                @error('city_id')
-                                    <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
-                                @enderror
-                            </div>
+                            
+
 
                             <!-- Save/Cancel Buttons -->
                             <div class="flex justify-start">

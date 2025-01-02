@@ -30,9 +30,4 @@ class CoreProvince extends Model
     protected $hidden = [
     ];
 
-    public function warehouseLocations()
-    {
-        return $this->hasMany(WarehouseLocation::class, 'province_id');
-    }
-
 }

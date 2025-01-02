@@ -51,8 +51,7 @@
                             <th class="px-6 py-4 text-left text-sm font-medium text-gray-600 dark:text-gray-200"></th>
                             <th class="px-6 py-4 text-left text-sm font-medium text-gray-600 dark:text-gray-200">No</th>
                             <th class="px-6 py-4 text-left text-sm font-medium text-gray-600 dark:text-gray-200">Code</th>
-                            <th class="px-6 py-4 text-left text-sm font-medium text-gray-600 dark:text-gray-200">Provinsi Lokasi Gudang </th>
-                            <th class="px-6 py-4 text-left text-sm font-medium text-gray-600 dark:text-gray-200">Kota Lokasi Gudang</th>
+                            <th class="px-6 py-4 text-left text-sm font-medium text-gray-600 dark:text-gray-200">Deskripsi</th>
                             <th class="px-6 py-4 text-left text-sm font-medium text-gray-600 dark:text-gray-200">Actions</th>
                         </tr>
                     </thead>
@@ -62,8 +61,7 @@
                                 <td class="px-6 py-4 text-sm"></td>
                                 <td class="px-6 py-4 text-sm text-gray-800 dark:text-gray-200">{{ $loop->iteration }}</td>
                                 <td class="px-6 py-4 text-sm text-gray-800 dark:text-gray-200">{{ $warehouse->warehouse_location_code }}</td>
-                                <td class="px-6 py-4 text-sm text-gray-800 dark:text-gray-200">{{ $warehouse->province ? $warehouse->province->province_name : 'No code' }}</td>
-                                <td class="px-6 py-4 text-sm text-gray-800 dark:text-gray-200">{{ $warehouse->city ? $warehouse->city->city_name : 'No code' }}</td>
+                                <td class="px-6 py-4 text-sm text-gray-800 dark:text-gray-200">{{ $warehouse->description }}</td>
                                 <td class="px-6 py-4 text-sm flex space-x-2">
                                     <a href="{{ route('WarehouseLocation.edit', $warehouse->warehouse_location_id) }}"
                                        class="bg-blue-100 dark:bg-blue-900 text-blue-700 dark:text-blue-300 px-3 py-1 rounded-lg hover:bg-blue-200 dark:hover:bg-blue-800 transition duration-200 ease-in-out flex items-center">

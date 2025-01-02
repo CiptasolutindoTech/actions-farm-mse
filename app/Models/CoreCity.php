@@ -30,10 +30,5 @@ class CoreCity extends Model
     protected $hidden = [
     ];
 
-    public function warehouseLocations()
-    {
-        return $this->hasMany(WarehouseLocation::class, 'city_id');
-    }
-
 
 }
