@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Warehouse extends Model
@@ -57,5 +58,9 @@ class Warehouse extends Model
     public function warehouselocation()
     {
         return $this->belongsTo(WarehouseLocation::class, 'warehouse_location_id', 'warehouse_location_id');
+    }
+    public function stock(): HasMany
+    {
+        return $this->hasMany(WarehouseLocation::class, 'warehouse_id', 'warehouse_id');
     }
 }

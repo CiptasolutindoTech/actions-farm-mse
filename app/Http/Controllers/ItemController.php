@@ -23,10 +23,10 @@ class ItemController extends Controller
 
     public function create()
     {
-        $categories = Category::all();
+        $categoris = Category::all();
         $units = Unit::all();
-        return view('content.Item.create', compact('categories', 'units'));
-       
+        return view('content.Item.create', compact('categoris', 'units'));
+
     }
 
     /**
@@ -45,7 +45,7 @@ class ItemController extends Controller
             $validatedData = $request->validate([
                 'item_name' => 'required|string|max:255',
                 'category_id' => 'required|exists:categoris,category_id',
-                'unit_id' => 'required|exists:units,id',
+                'unit_id' => 'required|exists:units,unit_id',
                 'stock' => 'required|integer|min:0',
                 'unit_cost' => 'required|numeric|min:0',
                 'unit_price' => 'required|numeric|min:0',

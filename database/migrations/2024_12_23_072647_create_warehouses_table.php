@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('warehouses', function (Blueprint $table) {
-            $table->increments('warehouse_id');
+            $table->id('warehouse_id')->index();
             $table->integer('warehouse_location_id')->nullable();
             $table->string('warehouse_code', 20)->default('');
             $table->string('warehouse_type', 10)->nullable();
