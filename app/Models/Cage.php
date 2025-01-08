@@ -11,7 +11,7 @@ class Cage extends Model
 {
     /** @use HasFactory<\Database\Factories\CageFactory> */
     use HasFactory;
-    protected $table = 'cages';
+    protected $table = 'kandang';
     protected $primaryKey = 'cage_id';
     public $timestamps = true;
     protected $fillable = [

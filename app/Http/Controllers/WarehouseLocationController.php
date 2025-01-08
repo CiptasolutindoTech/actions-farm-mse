@@ -17,7 +17,7 @@ class WarehouseLocationController extends Controller
      */
     public function index()
     {
-        $warehouses = WarehouseLocation::with(['province', 'city'])->paginate(10); // Mengambil data warehouse dengan relasi province dan city
+        $warehouses = WarehouseLocation::paginate(10); // Mengambil data warehouse dengan relasi province dan city
         return view('content.WarehouseLocation.index', compact('warehouses'));
     }
 
@@ -28,9 +28,7 @@ class WarehouseLocationController extends Controller
      */
     public function create()
     {
-        $provinces = CoreProvince::all();
-        $cities = CoreCity::all();
-        return view('content.WarehouseLocation.create', compact('provinces', 'cities'));
+        return view('content.WarehouseLocation.create');
     }
 
      /**
@@ -48,8 +46,8 @@ class WarehouseLocationController extends Controller
             // Validate the request data
             $validatedData = $request->validate([
                 'warehouse_location_code' => 'required|string|max:20',
-                'province_id' => 'required|exists:core_province,province_id',
-                'city_id' => 'required|exists:core_city,city_id',
+                'description' => 'required|string',
+    
             ]);
 
             // Create the new warehouse
@@ -79,9 +77,7 @@ class WarehouseLocationController extends Controller
      */
     public function edit(WarehouseLocation $WarehouseLocation)
     {
-        $provinces = CoreProvince::all();
-        $cities = CoreCity::all();
-        return view('content.WarehouseLocation.edit', compact('WarehouseLocation','provinces','cities'));
+        return view('content.WarehouseLocation.edit', compact('WarehouseLocation'));
     }
 
     public function update(Request $request, WarehouseLocation $WarehouseLocation)
@@ -93,8 +89,8 @@ class WarehouseLocationController extends Controller
             // Validasi data request
             $validatedData = $request->validate([
                 'warehouse_location_code' => 'required|string|max:20',
-                'province_id' => 'required|exists:core_province,province_id',
-                'city_id' => 'required|exists:core_city,city_id',
+                'description' => 'required|string',
+               
             ]);
 
             // Update data obat

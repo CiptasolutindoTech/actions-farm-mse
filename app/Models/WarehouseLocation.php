@@ -19,8 +19,7 @@ class WarehouseLocation extends Model
     // Atribut yang dapat diisi (fillable)
     protected $fillable = [
         'warehouse_location_code',
-        'province_id',
-        'city_id',
+        'description',
         'data_state',
         'created_id',
         'updated_id',
@@ -28,16 +27,7 @@ class WarehouseLocation extends Model
     ];
 
     // Relasi ke tabel provinces
-    public function province()
-    {
-        return $this->belongsTo(CoreProvince::class, 'province_id','province_id');
-    }
-
-    // Relasi ke tabel cities
-    public function city()
-    {
-        return $this->belongsTo(CoreCity::class, 'city_id','city_id');
-    }
+   
 
     public function warehouses()
     {

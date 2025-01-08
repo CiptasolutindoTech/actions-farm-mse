@@ -9,7 +9,7 @@ class Unit extends Model
 {
     use HasFactory, SoftDeletes;
 
-    protected $guarded = ['id']; // Everything is mass-assignable except for 'id'
+    protected $guarded = ['unit_id']; // Everything is mass-assignable except for 'id'
     // Allow mass assignment for the 'name' attribute
     protected $fillable = ['name','code'];
 
@@ -20,6 +20,10 @@ class Unit extends Model
 
     public function items()
     {
-        return $this->hasMany(Item::class, 'unit_id', 'id');
+        return $this->hasMany(Item::class, 'item_id', 'item_id');
+    }
+    public function stock()
+    {
+        return $this->hasMany(Stock::class, 'item_id', 'item_id');
     }
 }

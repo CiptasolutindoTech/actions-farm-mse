@@ -61,18 +61,18 @@
                         @foreach($units as $unit)
                             <tr class="hover:bg-gray-50 dark:hover:bg-gray-700">
                                 <td class="px-6 py-4 text-sm"></td>
-                                <td class="px-6 py-4 text-sm text-gray-800 dark:text-gray-200">{{ $unit->id }}</td>
+                                <td class="px-6 py-4 text-sm text-gray-800 dark:text-gray-200">{{ $unit->unit_id }}</td>
                                 <td class="px-6 py-4 text-sm text-gray-800 dark:text-gray-200">{{ $unit->code }}</td>
                                 <td class="px-6 py-4 text-sm text-gray-800 dark:text-gray-200">{{ $unit->name }}</td>
                                 <td class="px-6 py-4 text-sm text-gray-800 dark:text-gray-200">{{ $unit->created_at->format('d M Y') }}</td>
                                 <td class="px-6 py-4 text-sm text-gray-800 dark:text-gray-200">{{ $unit->updated_at->format('d M Y') }}</td>
                                 <td class="px-6 py-4 text-sm flex space-x-2">
-                                    <a href="{{ route('unit.edit', $unit->id) }}"
+                                    <a href="{{ route('unit.edit', $unit->unit_id) }}"
                                        class="bg-blue-100 dark:bg-blue-900 text-blue-700 dark:text-blue-300 px-3 py-1 rounded-lg hover:bg-blue-200 dark:hover:bg-blue-800 transition duration-200 ease-in-out flex items-center">
                                         <i class="fas fa-edit mr-1"></i> Edit
                                     </a>
 
-                                    <form action="{{ route('unit.destroy', $unit->id) }}" method="POST" class="delete-form inline">
+                                    <form action="{{ route('unit.destroy', $unit->unit_id) }}" method="POST" class="delete-form inline">
                                         @csrf
                                         @method('DELETE')
                                         <button type="button"
