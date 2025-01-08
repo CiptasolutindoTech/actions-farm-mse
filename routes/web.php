@@ -13,6 +13,7 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\WarehouseController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\CoreBranchController;
+use App\Http\Controllers\SupplierController;
 use App\Http\Controllers\WarehouseLocationController;
 
 Route::get('login', [LoginController::class, 'showLoginForm'])->name('login');
@@ -120,6 +121,15 @@ Route::prefix('WarehouseLocation')->name('WarehouseLocation.')->group(function (
     Route::get('{WarehouseLocation}/edit', [WarehouseLocationController::class, 'edit'])->name('edit');  // Menampilkan form edit unit
     Route::put('{WarehouseLocation}', [WarehouseLocationController::class, 'update'])->name('update');  // Proses update unit
     Route::delete('{WarehouseLocation}', [WarehouseLocationController::class, 'destroy'])->name('destroy');  // Proses delete unit
+});
+
+Route::prefix('Supplier')->name('Supplier.')->group(function () {
+    Route::get('/', [SupplierController::class, 'index'])->name('index');  // Menampilkan list unit
+    Route::get('/create', [SupplierController::class, 'create'])->name('create');  // Menampilkan form create unit
+    Route::post('/', [SupplierController::class, 'store'])->name('store');  // Proses create unit
+    Route::get('{Supplier}/edit', [SupplierController::class, 'edit'])->name('edit');  // Menampilkan form edit unit
+    Route::put('{Supplier}', [SupplierController::class, 'update'])->name('update');  // Proses update unit
+    Route::delete('{Supplier}', [SupplierController::class, 'destroy'])->name('destroy');  // Proses delete unit
 });
 
 require __DIR__.'/auth.php';
