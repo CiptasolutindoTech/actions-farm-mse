@@ -33,7 +33,7 @@ return new class extends Migration
                [ 'id_menu' => 77, 'id' => 'hewan',               'type' => 'file','text' => 'Hewan','parent_id' => "10",'menu_level' => "2",],
                [ 'id_menu' => 76, 'id' => 'feed',               'type' => 'file','text' => 'Pakan','parent_id' => "10",'menu_level' => "2",],
                [ 'id_menu' => 93, 'id' => 'obat',                 'type' => 'file', 'text' => 'Obat','parent_id' => "10",'menu_level' => "2",],
-               [ 'id_menu' => 11, 'id' => 'cage',                 'type' => 'file', 'text' => 'Kandang','parent_id' => "10",'menu_level' => "2",],
+               [ 'id_menu' => 11, 'id' => 'kandang',                 'type' => 'file', 'text' => 'Kandang','parent_id' => "10",'menu_level' => "2",],
                [ 'id_menu' => 2,  'id' => '#',                  'type' => 'file','text' => 'Persediaan','parent_id' => "#",'menu_level' => "1",],
                [ 'id_menu' => 21, 'id' => 'inventory-stock',    'type' => 'file','text' => 'Stock','parent_id' => "2",'menu_level' => "1",],
                [ 'id_menu' => 3,  'id' => 'purchase-invoice',   'type' => 'file','text' => 'Pembelian','parent_id' => "#",'menu_level' => "1",],

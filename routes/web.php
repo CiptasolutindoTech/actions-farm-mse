@@ -89,13 +89,13 @@ Route::prefix('obat')->name('obat.')->group(function () {
     Route::put('{obat}', [ObatController::class, 'update'])->name('update');  // Proses update unit
     Route::delete('{obat}', [ObatController::class, 'destroy'])->name('destroy');  // Proses delete unit
 });
-Route::prefix('cage')->name('cage.')->group(function () {
+Route::prefix('kandang')->name('kandang.')->group(function () {
     Route::get('/', [CageController::class, 'index'])->name('index');  // Menampilkan list unit
     Route::get('/create', [CageController::class, 'create'])->name('create');  // Menampilkan form create unit
     Route::post('/', [CageController::class, 'store'])->name('store');  // Proses create unit
-    Route::get('{cages}/edit', [CageController::class, 'edit'])->name('edit');  // Menampilkan form edit unit
-    Route::put('{cages}', [CageController::class, 'update'])->name('update');  // Proses update unit
-    Route::delete('{cages}', [CageController::class, 'destroy'])->name('destroy');  // Proses delete unit
+    Route::get('{kandang}/edit', [CageController::class, 'edit'])->name('edit');  // Menampilkan form edit unit
+    Route::put('{kandang}', [CageController::class, 'update'])->name('update');  // Proses update unit
+    Route::delete('{kandang}', [CageController::class, 'destroy'])->name('destroy');  // Proses delete unit
 });
 Route::prefix('CoreBranch')->name('CoreBranch.')->group(function () {
     Route::get('/', [CoreBranchController::class, 'index'])->name('index');  // Menampilkan list unit
