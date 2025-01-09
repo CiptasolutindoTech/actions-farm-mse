@@ -49,7 +49,7 @@
             </div>
 
             <!-- Form to Edit Supplier -->
-            <form action="{{ route('Supplier.update', $Supplier) }}" method="POST" class="space-y-6 mx-8 my-4">
+            <form action="{{ route('Supplier.update', $Supplier->supplier_id) }}" method="POST" class="space-y-6 mx-8 my-4">
                 @csrf
                 @method('PUT')
                 <div>
