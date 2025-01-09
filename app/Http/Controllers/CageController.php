@@ -16,8 +16,8 @@ class CageController extends Controller
      */
     public function index()
     {
-        $cages = Cage::paginate(10);
-        return view('content.Cage.index', compact('cages'));
+        $kandang = Cage::paginate(10);
+        return view('content.Kandang.index', compact('kandang'));
     }
     /**
      * Menampilkan form untuk membuat Cage.
@@ -27,7 +27,7 @@ class CageController extends Controller
     public function create()
     {
         $animals = Hewan::all();
-        return view('content.Cage.create', compact('animals'));
+        return view('content.Kandang.create', compact('animals'));
     }
     /**
      * Menyimpan data Cage baru.
@@ -65,22 +65,22 @@ class CageController extends Controller
             session()->flash('error', 'Failed to create cage. Please try again.');
         }
 
-        return redirect()->route('cage.index');
+        return redirect()->route('kandang.index');
     }
-    public function edit(Cage $cages)
+    public function edit(Cage $kandang)
     {
         $animals = Hewan::all();
-        return view('content.Cage.edit', compact('cages', 'animals'));
+        return view('content.Kandang.edit', compact('kandang', 'animals'));
     }
 
     /**
      * Memperbarui data Cage.
      *
      * @param \Illuminate\Http\Request $request
-     * @param \App\Models\Cage $cages
+     * @param \App\Models\Cage $kandang
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function update(Request $request, Cage $cages)
+    public function update(Request $request, Cage $kandang)
     {
         // Start a database transaction
         DB::beginTransaction();
@@ -95,7 +95,7 @@ class CageController extends Controller
             ]);
 
             // Update the Cage
-            $cages->update($request->all());
+            $kandang->update($request->all());
 
             // Commit the transaction
             DB::commit();
@@ -110,23 +110,23 @@ class CageController extends Controller
             session()->flash('error', 'Failed to update Cage. Please try again.');
         }
 
-        return redirect()->route('cage.index');
+        return redirect()->route('kandang.index');
     }
 
     /**
      * Menghapus Cage.
      *
-     * @param \App\Models\Cage $cages
+     * @param \App\Models\Cage $kandang
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function destroy(Cage $cages)
+    public function destroy(Cage $kandang)
     {
         // Start a database transaction
         DB::beginTransaction();
 
         try {
             // Delete the Cage
-            $cages->delete();
+            $kandang->delete();
 
             // Commit the transaction
             DB::commit();
@@ -141,6 +141,6 @@ class CageController extends Controller
             session()->flash('error', 'Failed to delete Cage. Please try again.');
         }
 
-        return redirect()->route('cage.index');
+        return redirect()->route('kandang.index');
     }
 }

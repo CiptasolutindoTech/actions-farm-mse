@@ -15,6 +15,7 @@ use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\WarehouseController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\CoreBranchController;
+use App\Http\Controllers\SupplierController;
 use App\Http\Controllers\WarehouseLocationController;
 
 Route::get('login', [LoginController::class, 'showLoginForm'])->name('login');
@@ -54,9 +55,9 @@ Route::prefix('category')->name('category.')->group(function () {
     Route::get('/', [CategoryController::class, 'index'])->name('index');  // Menampilkan list unit
     Route::get('/create', [CategoryController::class, 'create'])->name('create');  // Menampilkan form create unit
     Route::post('/', [CategoryController::class, 'store'])->name('store');  // Proses create unit
-    Route::get('{categoris}/edit', [CategoryController::class, 'edit'])->name('edit');  // Menampilkan form edit unit
-    Route::put('{categoris}', [CategoryController::class, 'update'])->name('update');  // Proses update unit
-    Route::delete('{categoris}', [CategoryController::class, 'destroy'])->name('destroy');  // Proses delete unit
+    Route::get('{category}/edit', [CategoryController::class, 'edit'])->name('edit');  // Menampilkan form edit unit
+    Route::put('{category}', [CategoryController::class, 'update'])->name('update');  // Proses update unit
+    Route::delete('{category}', [CategoryController::class, 'destroy'])->name('destroy');  // Proses delete unit
 });
 Route::prefix('item')->name('item.')->group(function () {
     Route::get('/', [ItemController::class, 'index'])->name('index');  // Menampilkan list unit
@@ -90,13 +91,13 @@ Route::prefix('obat')->name('obat.')->group(function () {
     Route::put('{obat}', [ObatController::class, 'update'])->name('update');  // Proses update unit
     Route::delete('{obat}', [ObatController::class, 'destroy'])->name('destroy');  // Proses delete unit
 });
-Route::prefix('cage')->name('cage.')->group(function () {
+Route::prefix('kandang')->name('kandang.')->group(function () {
     Route::get('/', [CageController::class, 'index'])->name('index');  // Menampilkan list unit
     Route::get('/create', [CageController::class, 'create'])->name('create');  // Menampilkan form create unit
     Route::post('/', [CageController::class, 'store'])->name('store');  // Proses create unit
-    Route::get('{cages}/edit', [CageController::class, 'edit'])->name('edit');  // Menampilkan form edit unit
-    Route::put('{cages}', [CageController::class, 'update'])->name('update');  // Proses update unit
-    Route::delete('{cages}', [CageController::class, 'destroy'])->name('destroy');  // Proses delete unit
+    Route::get('{kandang}/edit', [CageController::class, 'edit'])->name('edit');  // Menampilkan form edit unit
+    Route::put('{kandang}', [CageController::class, 'update'])->name('update');  // Proses update unit
+    Route::delete('{kandang}', [CageController::class, 'destroy'])->name('destroy');  // Proses delete unit
 });
 Route::prefix('CoreBranch')->name('CoreBranch.')->group(function () {
     Route::get('/', [CoreBranchController::class, 'index'])->name('index');  // Menampilkan list unit
@@ -138,6 +139,15 @@ Route::prefix('customer')->name('customer.')->group(function () {
     Route::get('{customer}/edit', [CustomerController::class, 'edit'])->name('edit');  // Menampilkan form edit unit
     Route::put('{customer}', [CustomerController::class, 'update'])->name('update');  // Proses update unit
     Route::delete('{customer}', [CustomerController::class, 'destroy'])->name('destroy');  // Proses delete unit
+});
+
+Route::prefix('Supplier')->name('Supplier.')->group(function () {
+    Route::get('/', [SupplierController::class, 'index'])->name('index');  // Menampilkan list unit
+    Route::get('/create', [SupplierController::class, 'create'])->name('create');  // Menampilkan form create unit
+    Route::post('/', [SupplierController::class, 'store'])->name('store');  // Proses create unit
+    Route::get('{Supplier}/edit', [SupplierController::class, 'edit'])->name('edit');  // Menampilkan form edit unit
+    Route::put('{Supplier}', [SupplierController::class, 'update'])->name('update');  // Proses update unit
+    Route::delete('{Supplier}', [SupplierController::class, 'destroy'])->name('destroy');  // Proses delete unit
 });
 
 require __DIR__.'/auth.php';

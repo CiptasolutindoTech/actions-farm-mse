@@ -9,7 +9,7 @@ class Category extends Model
 {
     /** @use HasFactory<\Database\Factories\CategoryFactory> */
     use HasFactory;
-    protected $table = 'categoris';
+    protected $table = 'category';
     protected $primaryKey = 'category_id';
     public $timestamps = true;
     protected $fillable = [

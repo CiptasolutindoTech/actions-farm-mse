@@ -15,8 +15,8 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        $categoris = Category::paginate(10);
-        return view('content.Category.index', compact('categoris'));
+        $category = Category::paginate(10);
+        return view('content.Category.index', compact('category'));
     }
     /**
      * Menampilkan form untuk membuat Category.
@@ -62,19 +62,19 @@ class CategoryController extends Controller
 
         return redirect()->route('category.index');
     }
-    public function edit(Category $categoris)
+    public function edit(Category $category)
     {
-        return view('content.Category.edit', compact('categoris'));
+        return view('content.Category.edit', compact('category'));
     }
 
     /**
      * Memperbarui data Category.
      *
      * @param \Illuminate\Http\Request $request
-     * @param \App\Models\Category $categoris
+     * @param \App\Models\Category $category
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function update(Request $request, Category $categoris)
+    public function update(Request $request, Category $category)
     {
         // Start a database transaction
         DB::beginTransaction();
@@ -86,7 +86,7 @@ class CategoryController extends Controller
             ]);
 
             // Update the Category
-            $categoris->update($request->all());
+            $category->update($request->all());
 
             // Commit the transaction
             DB::commit();
@@ -107,17 +107,17 @@ class CategoryController extends Controller
     /**
      * Menghapus Category.
      *
-     * @param \App\Models\Category $categoris
+     * @param \App\Models\Category $category
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function destroy(Category $categoris)
+    public function destroy(Category $category)
     {
         // Start a database transaction
         DB::beginTransaction();
 
         try {
             // Delete the Category
-            $categoris->delete();
+            $category->delete();
 
             // Commit the transaction
             DB::commit();

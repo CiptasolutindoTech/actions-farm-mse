@@ -28,12 +28,12 @@ return new class extends Migration
                [ 'id_menu' => 1,  'id' => 'dashboard',          'type' => 'file','text' => 'Dashboard','parent_id' => "#",'menu_level' => "1",],
                [ 'id_menu' => 10, 'id' => '#',      'type' => 'file', 'text' => 'Barang','parent_id' => "8",'menu_level' => "2",],
                [ 'id_menu' => 82, 'id' => 'unit',               'type' => 'file','text' => 'Satuan','parent_id' => "10",'menu_level' => "2",],
-               [ 'id_menu' => 866, 'id' => 'category',               'type' => 'file','text' => 'Category','parent_id' => "10",'menu_level' => "2",],
+               [ 'id_menu' => 866, 'id' => 'category',               'type' => 'file','text' => 'Kategori','parent_id' => "10",'menu_level' => "2",],
                [ 'id_menu' => 92, 'id' => 'item',                 'type' => 'file', 'text' => 'Item','parent_id' => "10",'menu_level' => "2",],
                [ 'id_menu' => 77, 'id' => 'hewan',               'type' => 'file','text' => 'Hewan','parent_id' => "10",'menu_level' => "2",],
                [ 'id_menu' => 76, 'id' => 'feed',               'type' => 'file','text' => 'Pakan','parent_id' => "10",'menu_level' => "2",],
                [ 'id_menu' => 93, 'id' => 'obat',                 'type' => 'file', 'text' => 'Obat','parent_id' => "10",'menu_level' => "2",],
-               [ 'id_menu' => 11, 'id' => 'cage',                 'type' => 'file', 'text' => 'Kandang','parent_id' => "10",'menu_level' => "2",],
+               [ 'id_menu' => 11, 'id' => 'kandang',                 'type' => 'file', 'text' => 'Kandang','parent_id' => "10",'menu_level' => "2",],
                [ 'id_menu' => 2,  'id' => '#',                  'type' => 'file','text' => 'Persediaan','parent_id' => "#",'menu_level' => "1",],
                [ 'id_menu' => 21, 'id' => 'inventory-stock',    'type' => 'file','text' => 'Stock','parent_id' => "2",'menu_level' => "1",],
                [ 'id_menu' => 3,  'id' => 'purchase-invoice',   'type' => 'file','text' => 'Pembelian','parent_id' => "#",'menu_level' => "1",],
@@ -62,6 +62,7 @@ return new class extends Migration
                [ 'id_menu' => 95, 'id' => 'Warehouse',            'type' => 'file', 'text' => 'Mengelola Gudang','parent_id' => "8",'menu_level' => "2",],
                [ 'id_menu' => 96, 'id' => 'customer',            'type' => 'file', 'text' => 'Pelanggan','parent_id' => "8",'menu_level' => "2",],
                [ 'id_menu' => 94, 'id' => 'WarehouseLocation',      'type' => 'file', 'text' => 'Lokasi Gudang','parent_id' => "8",'menu_level' => "2",],
+               [ 'id_menu' => 97, 'id' => 'Supplier',      'type' => 'file', 'text' => 'Supplier','parent_id' => "8",'menu_level' => "2",],
                [ 'id_menu' => 911, 'id' => 'invoice-report',      'type' => 'file', 'text' => 'Tagihan Invoice','parent_id' => "91",'menu_level' => "2",],
             ]);
         }
