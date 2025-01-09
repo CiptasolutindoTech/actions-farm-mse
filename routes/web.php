@@ -54,9 +54,9 @@ Route::prefix('category')->name('category.')->group(function () {
     Route::get('/', [CategoryController::class, 'index'])->name('index');  // Menampilkan list unit
     Route::get('/create', [CategoryController::class, 'create'])->name('create');  // Menampilkan form create unit
     Route::post('/', [CategoryController::class, 'store'])->name('store');  // Proses create unit
-    Route::get('{categoris}/edit', [CategoryController::class, 'edit'])->name('edit');  // Menampilkan form edit unit
-    Route::put('{categoris}', [CategoryController::class, 'update'])->name('update');  // Proses update unit
-    Route::delete('{categoris}', [CategoryController::class, 'destroy'])->name('destroy');  // Proses delete unit
+    Route::get('{category}/edit', [CategoryController::class, 'edit'])->name('edit');  // Menampilkan form edit unit
+    Route::put('{category}', [CategoryController::class, 'update'])->name('update');  // Proses update unit
+    Route::delete('{category}', [CategoryController::class, 'destroy'])->name('destroy');  // Proses delete unit
 });
 Route::prefix('item')->name('item.')->group(function () {
     Route::get('/', [ItemController::class, 'index'])->name('index');  // Menampilkan list unit

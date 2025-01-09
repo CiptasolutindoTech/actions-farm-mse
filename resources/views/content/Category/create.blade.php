@@ -14,7 +14,7 @@
             </li>
             <li>
                 <a href="{{ route('category.index') }}" class="text-blue-600 font-semibold hover:text-blue-700">
-                    Tambah Categori
+                    Tambah Kategori
                 </a>
             </li>
         </ol>

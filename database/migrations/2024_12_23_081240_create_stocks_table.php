@@ -19,7 +19,7 @@ return new class extends Migration
             $table->unsignedBigInteger('warehouse_id')->default(0);
             $table->foreign('warehouse_id')->references('warehouse_id')->on('warehouses')->onDelete('cascade')->onUpdate('cascade');
             $table->unsignedBigInteger('category_id')->default(0);
-            $table->foreign('category_id')->references('category_id')->on('categoris')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('category_id')->references('category_id')->on('category')->onDelete('cascade')->onUpdate('cascade');
             $table->unsignedBigInteger('item_id')->default(0);
             $table->foreign('item_id')->references('item_id')->on('items')->onDelete('cascade')->onUpdate('cascade');
             $table->unsignedBigInteger('unit_id')->default(5);
