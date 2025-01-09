@@ -28,7 +28,7 @@ return new class extends Migration
                [ 'id_menu' => 1,  'id' => 'dashboard',          'type' => 'file','text' => 'Dashboard','parent_id' => "#",'menu_level' => "1",],
                [ 'id_menu' => 10, 'id' => '#',      'type' => 'file', 'text' => 'Barang','parent_id' => "8",'menu_level' => "2",],
                [ 'id_menu' => 82, 'id' => 'unit',               'type' => 'file','text' => 'Satuan','parent_id' => "10",'menu_level' => "2",],
-               [ 'id_menu' => 866, 'id' => 'category',               'type' => 'file','text' => 'Category','parent_id' => "10",'menu_level' => "2",],
+               [ 'id_menu' => 866, 'id' => 'category',               'type' => 'file','text' => 'Kategori','parent_id' => "10",'menu_level' => "2",],
                [ 'id_menu' => 92, 'id' => 'item',                 'type' => 'file', 'text' => 'Item','parent_id' => "10",'menu_level' => "2",],
                [ 'id_menu' => 77, 'id' => 'hewan',               'type' => 'file','text' => 'Hewan','parent_id' => "10",'menu_level' => "2",],
                [ 'id_menu' => 76, 'id' => 'feed',               'type' => 'file','text' => 'Pakan','parent_id' => "10",'menu_level' => "2",],

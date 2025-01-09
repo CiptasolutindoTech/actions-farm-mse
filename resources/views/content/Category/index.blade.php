@@ -27,7 +27,7 @@
                 </li>
                 <li>
                     <a href="{{ route('category.index') }}" class="text-blue-600 font-semibold hover:text-blue-700">
-                        Category
+                        Kategori
                     </a>
                 </li>
             </ol>
@@ -37,9 +37,9 @@
         <div class="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-md shadow-lg overflow-hidden mx-5">
             <!-- Title and button container with justify-between -->
             <div class="flex justify-between items-center mb-6 mx-8 my-2">
-                <h1 class="text-2xl font-semibold text-gray-800 dark:text-gray-200 mx-2">Category</h1>
+                <h1 class="text-2xl font-semibold text-gray-800 dark:text-gray-200 mx-2">Kategori</h1>
                 <a href="{{ route('category.create') }}" class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-lg inline-block transition duration-200 ease-in-out flex items-center">
-                    <i class="fas fa-plus mr-2"></i> {{ __('Tambah Category') }}
+                    <i class="fas fa-plus mr-2"></i> {{ __('Tambah Kategori') }}
                 </a>
             </div>
 
@@ -57,7 +57,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach($categoris as $categori)
+                        @foreach($category as $categori)
                             <tr class="hover:bg-gray-50 dark:hover:bg-gray-700">
                                 <td class="px-6 py-4 text-sm"></td>
                                 <td class="px-6 py-4 text-sm text-gray-800 dark:text-gray-200">{{ $categori->category_id }}</td>
@@ -88,7 +88,7 @@
 
             <!-- Pagination -->
             <div class="mt-6 px-4 py-2">
-                {{ $categoris->links() }}
+                {{ $category->links() }}
             </div>
         </div>
     </div>
