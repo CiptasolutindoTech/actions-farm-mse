@@ -46,6 +46,8 @@ class SupplierController extends Controller
                 'supplier_name' => 'required',
                 'supplier_code' => 'required|unique:core_supplier',
                 'supplier_email' => 'nullable|email',
+                'supplier_mobile_phone1' => 'nullable|string|max:15',
+                'supplier_address' => 'nullable|string',
             ]);
 
             // Create the new supplier
@@ -97,6 +99,7 @@ class SupplierController extends Controller
                 'supplier_code' => 'required|unique:core_supplier,supplier_code,' . $Supplier->supplier_id . ',supplier_id',
                 'supplier_email' => 'nullable|email',
                 'supplier_mobile_phone1' => 'nullable|string|max:15',
+                'supplier_address' => 'nullable|string',
             ]);
 
             // Update the supplier

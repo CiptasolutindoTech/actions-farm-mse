@@ -62,6 +62,15 @@
                 </div>
 
                 <div>
+                    <label for="supplier_address" class="block text-sm font-medium text-gray-600 dark:text-gray-200">Supplier Address</label>
+                    <textarea id="supplier_address" name="supplier_address" rows="3"
+                        class="mt-2 block w-full border border-gray-300 rounded-lg p-2 focus:outline-none focus:ring-2 focus:ring-blue-500">{{ old('supplier_address', $Supplier->supplier_address) }}</textarea>
+                    @error('supplier_address')
+                        <span class="text-sm text-red-500">{{ $message }}</span>
+                    @enderror
+                </div>
+
+                <div>
                     <label for="supplier_code" class="block text-sm font-medium text-gray-600 dark:text-gray-200">Supplier Code</label>
                     <input type="text" id="supplier_code" name="supplier_code" value="{{ old('supplier_code', $Supplier->supplier_code) }}" 
                         class="mt-2 block w-full border border-gray-300 rounded-lg p-2 focus:outline-none focus:ring-2 focus:ring-blue-500" required>

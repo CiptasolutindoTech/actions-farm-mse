@@ -56,6 +56,7 @@
                             <th class="px-6 py-4 text-left text-sm font-medium text-gray-600 dark:text-gray-200">No</th>
                             <th class="px-6 py-4 text-left text-sm font-medium text-gray-600 dark:text-gray-200">Code</th>
                             <th class="px-6 py-4 text-left text-sm font-medium text-gray-600 dark:text-gray-200">Name</th>
+                            <th class="px-6 py-4 text-left text-sm font-medium text-gray-600 dark:text-gray-200">Address</th>
                             <th class="px-6 py-4 text-left text-sm font-medium text-gray-600 dark:text-gray-200">Email</th>
                             <th class="px-6 py-4 text-left text-sm font-medium text-gray-600 dark:text-gray-200">Phone</th>
                             <th class="px-6 py-4 text-left text-sm font-medium text-gray-600 dark:text-gray-200">Actions</th>
@@ -68,6 +69,7 @@
                             <td class="px-6 py-4 text-sm text-gray-800 dark:text-gray-200">{{ $loop->iteration }}</td>
                             <td class="px-6 py-4 text-sm text-gray-800 dark:text-gray-200">{{ $supplier->supplier_code }}</td>
                             <td class="px-6 py-4 text-sm text-gray-800 dark:text-gray-200">{{ $supplier->supplier_name }}</td>
+                            <td class="px-6 py-4 text-sm text-gray-800 dark:text-gray-200">{{ $supplier->supplier_address }}</td>
                             <td class="px-6 py-4 text-sm text-gray-800 dark:text-gray-200">{{ $supplier->supplier_email }}</td>
                             <td class="px-6 py-4 text-sm text-gray-800 dark:text-gray-200">{{ $supplier->supplier_mobile_phone1 }}</td>
                             <td class="px-6 py-4 text-sm flex space-x-2">
