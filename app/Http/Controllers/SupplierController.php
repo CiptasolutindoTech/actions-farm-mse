@@ -48,6 +48,7 @@ class SupplierController extends Controller
                 'supplier_email' => 'nullable|email',
                 'supplier_mobile_phone1' => 'nullable|string|max:15',
                 'supplier_address' => 'nullable|string',
+                'amount_debt' => 'required|integer|min:0',
             ]);
 
             // Create the new supplier
@@ -100,6 +101,8 @@ class SupplierController extends Controller
                 'supplier_email' => 'nullable|email',
                 'supplier_mobile_phone1' => 'nullable|string|max:15',
                 'supplier_address' => 'nullable|string',
+                'amount_debt' => 'required|integer|min:0',
+
             ]);
 
             // Update the supplier

@@ -97,6 +97,15 @@
                     @enderror
                 </div>
 
+                <div>
+                    <label for="amount_debt" class="block text-sm font-medium text-gray-600 dark:text-gray-200">Hutang</label>
+                    <input type="text" id="amount_debt" name="amount_debt" value="{{ old('amount_debt') }}" 
+                        class="mt-2 block w-full border border-gray-300 rounded-lg p-2 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    @error('amount_debt')
+                        <span class="text-sm text-red-500">{{ $message }}</span>
+                    @enderror
+                </div>
+
                 <div class="flex justify-end space-x-4">
                     <a href="{{ route('Supplier.index') }}" 
                         class="bg-gray-300 text-gray-700 px-6 py-2 rounded-lg inline-block hover:bg-gray-400">
