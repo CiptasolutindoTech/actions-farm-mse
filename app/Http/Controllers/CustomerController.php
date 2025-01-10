@@ -48,6 +48,7 @@ class CustomerController extends Controller
                 'customer_address' => 'nullable|string|max:255',
                 'customer_email' => 'nullable|email|max:255',
                 'customer_contact_person' => 'nullable|string|max:255',
+                'amount_debt'       => 'required|integer|min:0',
             ]);
 
             // Create a new customer record
@@ -100,6 +101,7 @@ class CustomerController extends Controller
                 'customer_address' => 'nullable|string|max:255',
                 'customer_email' => 'nullable|email|max:255',
                 'customer_contact_person' => 'nullable|string|max:255',
+                'amount_debt'       => 'required|integer|min:0',
             ]);
 
             // Update the customer record
