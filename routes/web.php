@@ -1,6 +1,5 @@
 <?php
 
-use App\Http\Controllers\StockController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CageController;
@@ -10,7 +9,9 @@ use App\Http\Controllers\MenuController;
 use App\Http\Controllers\ObatController;
 use App\Http\Controllers\UnitController;
 use App\Http\Controllers\HewanController;
+use App\Http\Controllers\StockController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\WarehouseController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\CoreBranchController;
@@ -130,6 +131,14 @@ Route::prefix('inventory-stock')->name('inventory-stock.')->group(function () {
     Route::get('{WarehouseLocation}/edit', [StockController::class, 'edit'])->name('edit');  // Menampilkan form edit unit
     Route::put('{WarehouseLocation}', [StockController::class, 'update'])->name('update');  // Proses update unit
     Route::delete('{WarehouseLocation}', [StockController::class, 'destroy'])->name('destroy');  // Proses delete unit
+});
+Route::prefix('customer')->name('customer.')->group(function () {
+    Route::get('/', [CustomerController::class, 'index'])->name('index');  // Menampilkan list unit
+    Route::get('/create', [CustomerController::class, 'create'])->name('create');  // Menampilkan form create unit
+    Route::post('/', [CustomerController::class, 'store'])->name('store');  // Proses create unit
+    Route::get('{customer}/edit', [CustomerController::class, 'edit'])->name('edit');  // Menampilkan form edit unit
+    Route::put('{customer}', [CustomerController::class, 'update'])->name('update');  // Proses update unit
+    Route::delete('{customer}', [CustomerController::class, 'destroy'])->name('destroy');  // Proses delete unit
 });
 
 Route::prefix('Supplier')->name('Supplier.')->group(function () {
