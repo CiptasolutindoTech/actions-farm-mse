@@ -59,6 +59,7 @@
                             <th class="px-6 py-4 text-left text-sm font-medium text-gray-600 dark:text-gray-200">Address</th>
                             <th class="px-6 py-4 text-left text-sm font-medium text-gray-600 dark:text-gray-200">Email</th>
                             <th class="px-6 py-4 text-left text-sm font-medium text-gray-600 dark:text-gray-200">Phone</th>
+                            <th class="px-6 py-4 text-left text-sm font-medium text-gray-600 dark:text-gray-200">Hutang</th>
                             <th class="px-6 py-4 text-left text-sm font-medium text-gray-600 dark:text-gray-200">Actions</th>
                         </tr>
                     </thead>
@@ -72,6 +73,7 @@
                             <td class="px-6 py-4 text-sm text-gray-800 dark:text-gray-200">{{ $supplier->supplier_address }}</td>
                             <td class="px-6 py-4 text-sm text-gray-800 dark:text-gray-200">{{ $supplier->supplier_email }}</td>
                             <td class="px-6 py-4 text-sm text-gray-800 dark:text-gray-200">{{ $supplier->supplier_mobile_phone1 }}</td>
+                            <td class="px-6 py-4 text-sm text-gray-800 dark:text-gray-200">{{ $supplier->amount_debt }}</td>
                             <td class="px-6 py-4 text-sm flex space-x-2">
                                 <a href="{{ route('Supplier.edit', $supplier->supplier_id) }}" 
                                     class="bg-blue-100 dark:bg-blue-900 text-blue-700 dark:text-blue-300 px-3 py-1 rounded-lg hover:bg-blue-200 dark:hover:bg-blue-800 transition duration-200 ease-in-out flex items-center">
