@@ -90,7 +90,6 @@
                             value="19/12/2024" readonly>
                     </div>
                 </div>
-
                 <!-- Expedition Info -->
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div>
@@ -110,7 +109,6 @@
                             value="0,00" readonly>
                     </div>
                 </div>
-
                 <!-- Driver Info -->
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div>
@@ -130,7 +128,6 @@
                             value="AD1201308123" readonly>
                     </div>
                 </div>
-
                 <!-- Dates -->
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div>
@@ -151,7 +148,6 @@
                             placeholder="hh / bb / tttt">
                     </div>
                 </div>
-
                 <!-- Additional Info -->
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div>
@@ -256,7 +252,6 @@
         </div>
     </div>
 </div>
-
     <script>
         setTimeout(function () {
             $('#success-message').fadeOut();
