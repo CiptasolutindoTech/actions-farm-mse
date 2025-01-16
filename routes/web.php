@@ -12,10 +12,11 @@ use App\Http\Controllers\HewanController;
 use App\Http\Controllers\StockController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\CustomerController;
+use App\Http\Controllers\SupplierController;
 use App\Http\Controllers\WarehouseController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\CoreBranchController;
-use App\Http\Controllers\SupplierController;
+use App\Http\Controllers\SalesOrderController;
 use App\Http\Controllers\WarehouseLocationController;
 
 Route::get('login', [LoginController::class, 'showLoginForm'])->name('login');
@@ -148,6 +149,15 @@ Route::prefix('Supplier')->name('Supplier.')->group(function () {
     Route::get('{Supplier}/edit', [SupplierController::class, 'edit'])->name('edit');  // Menampilkan form edit unit
     Route::put('{Supplier}', [SupplierController::class, 'update'])->name('update');  // Proses update unit
     Route::delete('{Supplier}', [SupplierController::class, 'destroy'])->name('destroy');  // Proses delete unit
+});
+Route::prefix('SalesOrder')->name('SalesOrder.')->group(function () {
+    Route::get('/', [SalesOrderController::class, 'index'])->name('index');  // Menampilkan list unit
+    Route::get('/sales_quotation', [SalesOrderController::class, 'sales_quotation'])->name('sales_quotation');  // Menampilkan form create unit
+    Route::get('/create', [SalesOrderController::class, 'create'])->name('create');  // Menampilkan form create unit
+    Route::post('/', [SalesOrderController::class, 'store'])->name('store');  // Proses create unit
+    Route::get('{SalesOrder}/edit', [SalesOrderController::class, 'edit'])->name('edit');  // Menampilkan form edit unit
+    Route::put('{SalesOrder}', [SalesOrderController::class, 'update'])->name('update');  // Proses update unit
+    Route::delete('{SalesOrder}', [SalesOrderController::class, 'destroy'])->name('destroy');  // Proses delete unit
 });
 
 require __DIR__.'/auth.php';
