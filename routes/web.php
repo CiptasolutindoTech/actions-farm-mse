@@ -16,7 +16,6 @@ use App\Http\Controllers\SupplierController;
 use App\Http\Controllers\WarehouseController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\CoreBranchController;
-use App\Http\Controllers\SalesOrderController;
 use App\Http\Controllers\WarehouseLocationController;
 
 Route::get('login', [LoginController::class, 'showLoginForm'])->name('login');
@@ -153,6 +152,17 @@ Route::prefix('SalesOrder')->name('SalesOrder.')->group(function () {
     Route::get('{SalesOrder}/edit', [SalesOrderController::class, 'edit'])->name('edit');  // Menampilkan form edit unit
     Route::put('{SalesOrder}', [SalesOrderController::class, 'update'])->name('update');  // Proses update unit
     Route::delete('{SalesOrder}', [SalesOrderController::class, 'destroy'])->name('destroy');  // Proses delete unit
+});
+
+Route::prefix('SalesInvoice')->name('SalesInvoice.')->group(function () {
+    Route::get('/search-buyers-acknowledgment', [SalesInvoiceController::class, 'searchBuyersAcknowledgment'])->name('search-buyers-acknowledgment');
+    Route::get('/', [SalesInvoiceController::class, 'index'])->name('index');  // Menampilkan list unit
+    Route::get('/create', [SalesInvoiceController::class, 'create'])->name('create');  // Menampilkan form create unit
+    Route::post('/', [SalesInvoiceController::class, 'store'])->name('store');  // Proses create unit
+    Route::get('{SalesInvoice}/edit', [SalesInvoiceController::class, 'edit'])->name('edit');  // Menampilkan form edit unit
+    Route::put('{SalesInvoice}', [SalesInvoiceController::class, 'update'])->name('update');  // Proses update unit
+    Route::delete('{SalesInvoice}', [SalesInvoiceController::class, 'destroy'])->name('destroy');  // Proses delete unit
+
 });
 
 require __DIR__.'/auth.php';
