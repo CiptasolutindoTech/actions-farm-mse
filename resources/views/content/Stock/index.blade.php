@@ -91,16 +91,20 @@
                                 <td class="px-6 py-4 text-sm text-gray-800 dark:text-gray-200">{{ $stock->category_name }}</td>
                                 <td class="px-6 py-4 text-sm text-gray-800 dark:text-gray-200">{{ $stock->category ? $stock->category->category_name : 'No Category' }}</td>
                                 <td class="px-6 py-4 text-sm text-gray-800 dark:text-gray-200">{{ $stock->item ? $stock->item->item_name : 'No Item' }}</td>
-                                <td class="px-6 py-4 text-sm text-gray-800 dark:text-gray-200">{{ $stock->category_name }}</td>
+                                <td class="px-6 py-4 text-sm text-gray-800 dark:text-gray-200">{{ $stock->quantity_unit }}</td>
                                 <td class="px-6 py-4 text-sm text-gray-800 dark:text-gray-200">{{ $stock->unit ? $stock->unit->name : 'No Unit' }}</td>
                                 <td class="px-6 py-4 text-sm text-gray-800 dark:text-gray-200">{{ $stock->warehouse ? $stock->warehouse->warehouse_name : 'No Warehouse' }}</td>
-                                <td class="px-6 py-4 text-sm text-gray-800 dark:text-gray-200">{{ $stock->category_name }}</td>
-                                <td class="px-6 py-4 text-sm text-gray-800 dark:text-gray-200">{{ $stock->category_name }}</td>
-                                <td class="px-6 py-4 text-sm text-gray-800 dark:text-gray-200">{{ $stock->category_name }}</td>
-                                <td class="px-6 py-4 text-sm text-gray-800 dark:text-gray-200">{{ $stock->category_name }}</td>
-                                <td class="px-6 py-4 text-sm text-gray-800 dark:text-gray-200">{{ $stock->category_name }}</td>
-                                <td class="px-6 py-4 text-sm text-gray-800 dark:text-gray-200">{{ $stock->category_name }}</td>
-                                <td class="px-6 py-4 text-sm text-gray-800 dark:text-gray-200">{{ $stock->category_name }}</td>
+                                <td class="px-6 py-4 text-sm text-gray-800 dark:text-gray-200">{{ $stock->purchase_order_no }}</td>
+                                <td class="px-6 py-4 text-sm text-gray-800 dark:text-gray-200">{{ $stock->no_retur_barang }}</td>
+                                <td class="px-6 py-4 text-sm text-gray-800 dark:text-gray-200">{{ $stock->nota_retur_pajak }}</td>
+                                <td class="px-6 py-4 text-sm text-gray-800 dark:text-gray-200">{{ $stock->item_stock_date }}</td>
+                                <td class="px-6 py-4 text-sm text-gray-800 dark:text-gray-200">Rp.{{ number_format($stock->item_unit_cost) }}</td>
+                                <td class="px-6 py-4 text-sm text-gray-800 dark:text-gray-200">Rp. {{ number_format($stock->item_unit_price) }}</td>
+                                <?php if($stock['item_stock_expired_date']=='0000-00-00') {?>
+                                    <td>-</td>
+                                <?php } else {?>
+                                    <td>{{date('d/m/Y', strtotime($stock['item_stock_expired_date']))}}</td>
+                                <?php } ?>
                                 <td class="px-6 py-4 text-sm text-gray-800 dark:text-gray-200">{{ $stock->created_at->format('d M Y') }}</td>
                                 <td class="px-6 py-4 text-sm text-gray-800 dark:text-gray-200">{{ $stock->updated_at->format('d M Y') }}</td>
                             </tr>
