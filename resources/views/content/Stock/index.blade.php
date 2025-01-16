@@ -18,7 +18,7 @@
                 </li>
             </ol>
         </nav>
-        <div class="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-md shadow-lg overflow-hidden mx-5">
+        {{-- <div class="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-md shadow-lg overflow-hidden mx-5">
             <div class="flex justify-between items-center mb-6 mx-8 my-2">
                 <h1 class="text-2xl font-semibold text-gray-800 dark:text-gray-200 mx-2">Filter</h1>
             </div>
@@ -48,7 +48,7 @@
                     </select>
                 </div>
             </div>
-        </div>
+        </div> --}}
         <!-- Card container -->
         <div class="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-md shadow-lg overflow-hidden mx-5 mt-5">
             <!-- Title and button container with justify-between -->
