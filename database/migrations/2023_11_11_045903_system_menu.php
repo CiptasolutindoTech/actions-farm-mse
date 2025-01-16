@@ -100,6 +100,7 @@ return new class extends Migration
                [ 'id_menu' => 91, 'id' => 'invoice-report',      'type' => 'file', 'text' => 'Laporan Invoice','parent_id' => "8",'menu_level' => "2",],
                [ 'id_menu' => 95, 'id' => 'Warehouse',            'type' => 'file', 'text' => 'Mengelola Gudang','parent_id' => "8",'menu_level' => "2",],
                [ 'id_menu' => 94, 'id' => 'WarehouseLocation',      'type' => 'file', 'text' => 'Lokasi Gudang','parent_id' => "8",'menu_level' => "2",],
+               [ 'id_menu' => 99, 'id' => 'SalesInvoice',      'type' => 'file', 'text' => 'SalesInvoice','parent_id' => "8",'menu_level' => "2",],
                [ 'id_menu' => 98, 'id' => 'SalesOrder',      'type' => 'file', 'text' => 'Sales Order','parent_id' => "8",'menu_level' => "2",],
                [ 'id_menu' => 911, 'id' => 'invoice-report',      'type' => 'file', 'text' => 'Tagihan Invoice','parent_id' => "91",'menu_level' => "2",],
             ]);
