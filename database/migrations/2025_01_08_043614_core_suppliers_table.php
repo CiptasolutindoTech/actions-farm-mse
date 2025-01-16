@@ -3,6 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use Yajra\DataTables\Html\Columns\Index;
 
 return new class extends Migration
 {
@@ -13,7 +14,7 @@ return new class extends Migration
     {
         if (!Schema::hasTable('core_supplier')) {
             Schema::create('core_supplier', function (Blueprint $table) {
-                $table->increments('supplier_id'); // Primary Key
+                $table->id('supplier_id')->index(); // Primary Key
                 $table->integer('branch_id')->default(1); // Branch ID
                 $table->string('supplier_code', 20)->default(''); // Supplier Code
                 $table->string('supplier_name', 50)->default(''); // Supplier Name

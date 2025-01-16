@@ -87,6 +87,16 @@
                                     <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
                                 @enderror
                             </div>
+                            <!-- Customer Contact Person -->
+                            <div class="mb-4">
+                                <label for="amount_debt" class="block text-sm font-medium text-gray-700 dark:text-gray-300">
+                                    {{ __('Piutang') }}
+                                </label>
+                                <input type="number" name="amount_debt" id="amount_debt" class="mt-1 block w-full rounded-md shadow-sm bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-200">
+                                @error('amount_debt')
+                                    <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
+                                @enderror
+                            </div>
                             
                             </div>
 

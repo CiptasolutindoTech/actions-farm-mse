@@ -44,7 +44,7 @@ class ItemController extends Controller
             // Validate the request data
             $validatedData = $request->validate([
                 'item_name' => 'required|string|max:255',
-                'category_id' => 'required|exists:categoris,category_id',
+                'category_id' => 'required|exists:category,category_id',
                 'unit_id' => 'required|exists:units,unit_id',
                 'stock' => 'required|integer|min:0',
                 'unit_cost' => 'required|numeric|min:0',

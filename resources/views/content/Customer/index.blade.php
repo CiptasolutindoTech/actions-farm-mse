@@ -53,6 +53,7 @@
                             <th class="px-6 py-4 text-left text-sm font-medium text-gray-600 dark:text-gray-200">Customer Name</th>
                             <th class="px-6 py-4 text-left text-sm font-medium text-gray-600 dark:text-gray-200">Email</th>
                             <th class="px-6 py-4 text-left text-sm font-medium text-gray-600 dark:text-gray-200">Contact Person</th>
+                            <th class="px-6 py-4 text-left text-sm font-medium text-gray-600 dark:text-gray-200">Piutang</th>
                             <th class="px-6 py-4 text-left text-sm font-medium text-gray-600 dark:text-gray-200">Actions</th>
                         </tr>
                     </thead>
@@ -64,6 +65,7 @@
                                 <td class="px-6 py-4 text-sm text-gray-800 dark:text-gray-200">{{ $customer->customer_name }}</td>
                                 <td class="px-6 py-4 text-sm text-gray-800 dark:text-gray-200">{{ $customer->customer_email }}</td>
                                 <td class="px-6 py-4 text-sm text-gray-800 dark:text-gray-200">{{ $customer->customer_contact_person }}</td>
+                                <td class="px-6 py-4 text-sm text-gray-800 dark:text-gray-200">{{ $customer->amount_debt }}</td>
                                 <td class="px-6 py-4 text-sm flex space-x-2">
                                     <a href="{{ route('customer.edit', $customer->customer_id) }}"
                                        class="bg-blue-100 dark:bg-blue-900 text-blue-700 dark:text-blue-300 px-3 py-1 rounded-lg hover:bg-blue-200 dark:hover:bg-blue-800 transition duration-200 ease-in-out flex items-center">
