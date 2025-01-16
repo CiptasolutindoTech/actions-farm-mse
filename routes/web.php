@@ -12,10 +12,11 @@ use App\Http\Controllers\HewanController;
 use App\Http\Controllers\StockController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\CustomerController;
+use App\Http\Controllers\SupplierController;
 use App\Http\Controllers\WarehouseController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\CoreBranchController;
-use App\Http\Controllers\SupplierController;
+use App\Http\Controllers\SalesInvoiceController;
 use App\Http\Controllers\WarehouseLocationController;
 
 Route::get('login', [LoginController::class, 'showLoginForm'])->name('login');
@@ -148,6 +149,17 @@ Route::prefix('Supplier')->name('Supplier.')->group(function () {
     Route::get('{Supplier}/edit', [SupplierController::class, 'edit'])->name('edit');  // Menampilkan form edit unit
     Route::put('{Supplier}', [SupplierController::class, 'update'])->name('update');  // Proses update unit
     Route::delete('{Supplier}', [SupplierController::class, 'destroy'])->name('destroy');  // Proses delete unit
+});
+
+Route::prefix('SalesInvoice')->name('SalesInvoice.')->group(function () {
+    Route::get('/search-buyers-acknowledgment', [SalesInvoiceController::class, 'searchBuyersAcknowledgment'])->name('search-buyers-acknowledgment');
+    Route::get('/', [SalesInvoiceController::class, 'index'])->name('index');  // Menampilkan list unit
+    Route::get('/create', [SalesInvoiceController::class, 'create'])->name('create');  // Menampilkan form create unit
+    Route::post('/', [SalesInvoiceController::class, 'store'])->name('store');  // Proses create unit
+    Route::get('{SalesInvoice}/edit', [SalesInvoiceController::class, 'edit'])->name('edit');  // Menampilkan form edit unit
+    Route::put('{SalesInvoice}', [SalesInvoiceController::class, 'update'])->name('update');  // Proses update unit
+    Route::delete('{SalesInvoice}', [SalesInvoiceController::class, 'destroy'])->name('destroy');  // Proses delete unit
+
 });
 
 require __DIR__.'/auth.php';
