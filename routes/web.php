@@ -127,11 +127,6 @@ Route::prefix('WarehouseLocation')->name('WarehouseLocation.')->group(function (
 });
 Route::prefix('inventory-stock')->name('inventory-stock.')->group(function () {
     Route::get('/', [StockController::class, 'index'])->name('index');  // Menampilkan list unit
-    Route::get('/create', [StockController::class, 'create'])->name('create');  // Menampilkan form create unit
-    Route::post('/', [StockController::class, 'store'])->name('store');  // Proses create unit
-    Route::get('{WarehouseLocation}/edit', [StockController::class, 'edit'])->name('edit');  // Menampilkan form edit unit
-    Route::put('{WarehouseLocation}', [StockController::class, 'update'])->name('update');  // Proses update unit
-    Route::delete('{WarehouseLocation}', [StockController::class, 'destroy'])->name('destroy');  // Proses delete unit
 });
 Route::prefix('customer')->name('customer.')->group(function () {
     Route::get('/', [CustomerController::class, 'index'])->name('index');  // Menampilkan list unit
