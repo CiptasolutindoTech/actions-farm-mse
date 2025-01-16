@@ -16,6 +16,8 @@ use App\Http\Controllers\SupplierController;
 use App\Http\Controllers\WarehouseController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\CoreBranchController;
+use App\Http\Controllers\SalesOrderController;
+use App\Http\Controllers\SalesInvoiceController;
 use App\Http\Controllers\WarehouseLocationController;
 
 Route::get('login', [LoginController::class, 'showLoginForm'])->name('login');
